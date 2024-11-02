@@ -19,7 +19,7 @@
 #' @export
 #' @import ggplot2
 #' @examples
-# # Exampe 1: Sample data for average daily steps
+# # Example 1: Sample data for average daily steps
 # example_data1 <- data.frame(
 #   Gender = rep(c("Male", "Female"), each = 7),
 #   Day = rep(c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"), times = 2),
@@ -38,10 +38,9 @@
 #   subtitle = "Comparison of Daily Steps Taken",
 #   x_label = "Day of the Week",
 #   y_label = "Average Steps",
-#   bar_color = c("blue", "pink")  # Blue for Male and Pink for Female
+#   bar_color = c("blue", "pink"),  # Blue for Male and Pink for Female
+#   legend_title = "Gender"  # Adding legend title
 # )
-#
-#
 # # Example 2: Sample data for depression scores by treatment groups
 # example_data2 <- data.frame(
 #   Group = rep(c("Control", "Treatment"), each = 5),
@@ -51,40 +50,45 @@
 # )
 #
 # # Create the grouped bar graph with error bars, bold title, and italic subtitle
-# apa_bar(data = example_data2,
-#         x_var = "Time",
-#         y_var = "Depression_Scores",
-#         group_var = "Group",
-#         error_var = "Error_Values",  # Specify the error variable
-#         title = "Depression Scores Over Time",
-#         subtitle = "Comparison Between Control and Treatment Groups",
-#         x_label = "Days",
-#         y_label = "Depression Scores",
-#         bar_color = c("lightgreen", "lightcoral"))  # Custom colors for groups
+# apa_bar(
+#   data = example_data2,
+#   x_var = "Time",
+#   y_var = "Depression_Scores",
+#   group_var = "Group",
+#   error_var = "Error_Values",  # Specify the error variable
+#   title = "Depression Scores Over Time",
+#   subtitle = "Comparison Between Control and Treatment Groups",
+#   x_label = "Days",
+#   y_label = "Depression Scores",
+#   bar_color = c("lightgreen", "lightcoral"),  # Custom colors for groups
+#   legend_title = "Group"  # Adding legend title
+# )
 #
-# # Example 3: This example showcases an imbalanced design,
-# # where the data structure can lead to misleading representations in the graph.
+# ## Example 3: Imbalanced Scenario
 # example_imbalanced <- data.frame(
-#   Subject = rep(c("Math", "Science", "English"), each = 4),
-#   Assessment_Type = rep(c("Quiz", "Exam"), times = 6),
-#   Mean_Score = c(85, 78, 90, 82, 88, 75, 84, 80, 92, 86, 77, 73),
-#   Error_Value = c(2, 3, 2, 1, 2, 2, 1, 3, 3, 2, 1, 2)  # Example error values
+#   Activity = rep(c("Running", "Swimming", "Cycling"), each = 4),
+#   Session_Type = rep(c("Weekday", "Weekend"), times = 6),
+#   Mean_Duration = c(30, 40, 25, 35, 45, 20, 50, 30, 55, 25, 60, 40),
+#   Error_Value = c(5, 7, 4, 6, 5, 3, 6, 4, 8, 5, 7, 3)  # Example error values
 # )
 #
 # # Create the grouped bar graph with error bars
 # apa_bar(
 #   data = example_imbalanced,
-#   x_var = "Subject",
-#   y_var = "Mean_Score",
-#   group_var = "Assessment_Type",
+#   x_var = "Activity",
+#   y_var = "Mean_Duration",
+#   group_var = "Session_Type",
 #   error_var = "Error_Value",  # Specify the error variable
-#   title = "Mean Test Scores by Subject",
-#   subtitle = "Comparison of Quiz and Exam Scores",
-#   x_label = "Subject",
-#   y_label = "Mean Score",
-#   bar_color = c("blue", "red")  # Blue for Quiz and Red for Exam
+#   title = "Average Exercise Duration by Activity",
+#   subtitle = "Comparison of Weekday and Weekend Sessions",
+#   x_label = "Activity Type",
+#   y_label = "Mean Duration (minutes)",
+#   bar_color = c("skyblue", "salmon")  # Different custom colors for groups
 # )
-#
+
+# Note: This example illustrates an imbalanced design, which may result in misleading visual representations.
+
+
 
 apa_bar <- function(data, x_var, y_var, group_var = NULL, facet_var = NULL,
                     error_var = NULL, # New parameter for error values
