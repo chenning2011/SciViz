@@ -37,4 +37,3 @@ astroCornerplot <- function(data, x, y){
   (c + plot_spacer()) / (a| b)
 }
 
-library(qacBase)
