@@ -4,10 +4,10 @@
 #'@param data a data frame
 #'@param x a numeric variable
 #'@param y a numeric variable
-#'@returns corner plot
+#'@returns corner plot with 2d histogram showing intersection of both variables and regular histogram for each variable
 #'@import ggplot2
-#'@import Routliers
-#'@import dplyr
+#'@import patchwork
+#'@import colorspace
 #'@examples
 #'a <- data.frame( x=rnorm(20000, 10, 1.9), y=rnorm(20000, 10, 1.2) )
 #'b <- data.frame( x=rnorm(20000, 14.5, 1.9), y=rnorm(20000, 14.5, 1.9) )
