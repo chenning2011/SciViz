@@ -18,22 +18,23 @@
 astroCornerplot <- function(data, x, y){
   library(ggplot2)
   library(patchwork)
+  library(colorspace)
 
   #making 2d histogram
   a <- ggplot(data, aes(x={{x}}, y={{y}}) ) +
     geom_bin2d(bins = 70) +
-    scale_fill_continuous(type = "viridis") +
+    scale_fill_continuous_sequential(palette = "Inferno", begin=1, end=0) +
     theme_bw()
 
   b <- ggplot(data, aes(x={{x}}))+
-    geom_histogram()+
+    geom_histogram(fill="mediumpurple4", bins=70)+
     theme_bw()
 
   c <- ggplot(data, aes(x={{y}}))+
-    geom_histogram()+
+    geom_histogram(fill="mediumpurple4", bins=70)+
     theme_bw()
 
-  (b + plot_spacer()) / (a| c)
+  (c + plot_spacer()) / (a| b)
 }
 
 library(qacBase)
