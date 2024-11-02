@@ -41,6 +41,7 @@
 #   bar_color = c("blue", "pink")  # Blue for Male and Pink for Female
 # )
 #
+#
 # # Example 2: Sample data for depression scores by treatment groups
 # example_data2 <- data.frame(
 #   Group = rep(c("Control", "Treatment"), each = 5),
