@@ -15,8 +15,24 @@
 #'data <- rbind(a,b,c)
 #'astroCornerplot(data, x, y)
 
-astroScatter <- function(data, x, y){
+
+#add option for color variable, group variable, facet_wrap, etc.
+astroScatter <- function(data, x, y, size=0.5, alpha=0.5){
   library(ggplot2)
 
-  #just need to make a scatterplot that's optimized for a lot of things
+  #removing NA values
+  data <- data %>%
+    filter(!is.na({{x}}) & !is.na({{y}}))
+
+  #creating labels
+  xname <- as.character(substitute(x))
+  yname <- as.character(substitute(y))
+  #figure out how to make the underscore things into subscripts maybe
+
+  #making the plot
+  ggplot(data)+
+    geom_point(aes(x={{x}}, y={{y}}), size=size, alpha=alpha)+
+    theme_bw()+
+    labs(x = xname, y = yname, title = paste(xname, "against", yname))
 }
+
