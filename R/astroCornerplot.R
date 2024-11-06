@@ -4,6 +4,10 @@
 #'@param data a data frame
 #'@param varlist character, list with all numeric variables to create the cornerplot and histograms with. defaults to all variables in the dataset
 #'@param contour logical, specify whether to overlay contour plot on 2d histogram
+#'@param fill fill color for histograms, defaults to mediumpurple
+#'@param bins number of bins for all histograms, defaults to 70
+#'@param palette color palette for 2d histogram scale, defaults to inferno
+#'@param contourBins number of bins for contour plot, defaults to 5
 #'@returns corner plot with 2d histogram showing intersection of both variables and regular histogram for each variable
 #'@import dplyr
 #'@import ggplot2
@@ -53,7 +57,7 @@ astroCornerplot <- function(data, varlist=names(data), contour=TRUE, fill="mediu
     #creating graph
     plot_2d <- ggplot(data) +
       geom_bin2d(aes(x = !!var_x, y = !!var_y), bins=bins) +
-      scale_fill_continuous_sequential(palette = "Inferno", begin = 1, end = 0) +
+      scale_fill_continuous_sequential(palette = palette, begin = 1, end = 0) +
       theme_bw()
 
     #contour option
