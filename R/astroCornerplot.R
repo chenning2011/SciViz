@@ -98,5 +98,3 @@ astroCornerplot <- function(data, varlist=names(data), contour=TRUE, fill="mediu
   wrap_plots(sorted_plots, ncol = length(varlist))
 }
 
-
-

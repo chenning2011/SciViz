@@ -16,3 +16,6 @@ Imports:
     ggplot2,
     patchwork,
     rlang
+Depends: 
+    R (>= 2.10)
+LazyData: true
