@@ -15,11 +15,8 @@
 #'@import colorspace
 #'@import rlang
 #'@examples
-#'a <- data.frame( x=rnorm(20000, 10, 1.9), y=rnorm(20000, 10, 1.2) )
-#'b <- data.frame( x=rnorm(20000, 14.5, 1.9), y=rnorm(20000, 14.5, 1.9) )
-#'c <- data.frame( x=rnorm(20000, 9.5, 1.9), y=rnorm(20000, 15.5, 1.9) )
-#'data <- rbind(a,b,c)
-#'astroCornerplot(data, x, y)
+#'astroCornerplot(starcatalog)
+#'astroCornerplot(starcatalog, contour=FALSE, fill="deepskyblue", palette = "Reds", bins=40)
 
 #add options for colors of histograms
 #add options for color palette for 2d histogram
