@@ -9,11 +9,8 @@
 #'@import patchwork
 #'@import colorspace
 #'@examples
-#'a <- data.frame( x=rnorm(20000, 10, 1.9), y=rnorm(20000, 10, 1.2) )
-#'b <- data.frame( x=rnorm(20000, 14.5, 1.9), y=rnorm(20000, 14.5, 1.9) )
-#'c <- data.frame( x=rnorm(20000, 9.5, 1.9), y=rnorm(20000, 15.5, 1.9) )
-#'data <- rbind(a,b,c)
-#'astroCornerplot(data, x, y)
+#'astroScatter(starcatalog, vmag, bv_color)
+#'astroScatter(starcatalog, vmag, bv_color, size=0.2, alpha=0.7)
 
 
 #add option for color variable, group variable, facet_wrap, etc.
