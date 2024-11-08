@@ -21,7 +21,7 @@ corrheatmap <- function(data, colors = c("blue", "white", "red"), title = "Corre
   #create correlation values
   c <- cor(data)
 
-  #create color pallate based on user input or default
+  #create color palette based on user input or default
   color <- colorRampPalette(colors) (20)
 
   #create graph in new window
