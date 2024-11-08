@@ -4,14 +4,20 @@
 \alias{astroScatter}
 \title{Astronomical Scatterplots}
 \usage{
-astroScatter(data, x, y, size = 0.5, alpha = 0.5)
+astroScatter(data, x, y, size = 0.5, alpha = 0.5, color = NULL)
 }
 \arguments{
 \item{data}{a data frame}
 
-\item{x}{a numeric variable}
+\item{x}{string, a numeric variable}
 
-\item{y}{a numeric variable}
+\item{y}{string, a numeric variable}
+
+\item{size}{(optional) size for the points on the graph. defaults to 0.5}
+
+\item{alpha}{(optional) transparency for the points on the graph. defaults to 0.5}
+
+\item{color}{(optional) string, color of the points. can supply a variable or the name of a color.}
 }
 \value{
 scatter plot with both variables
@@ -20,6 +26,6 @@ scatter plot with both variables
 Create scatterplots for astronomy data, optimized for a large number of points
 }
 \examples{
-astroScatter(starcatalog, vmag, bv_color)
-astroScatter(starcatalog, vmag, bv_color, size=0.2, alpha=0.7)
+astroScatter(starcatalog, "vmag", "bv_color")
+astroScatter(starcatalog, "vmag", "bv_color", "multiple", size=0.2, alpha=0.7)
 }

@@ -1,5 +1,9 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>/404.html</loc></url>
+<url><loc>/articles/Astronomy.html</loc></url>
+<url><loc>/articles/index.html</loc></url>
+<url><loc>/articles/Neuroscience.html</loc></url>
+<url><loc>/articles/Psychology.html</loc></url>
 <url><loc>/authors.html</loc></url>
 <url><loc>/index.html</loc></url>
 <url><loc>/LICENSE-text.html</loc></url>
@@ -7,6 +11,7 @@
 <url><loc>/reference/apa_bar.html</loc></url>
 <url><loc>/reference/astroCornerplot.html</loc></url>
 <url><loc>/reference/astroScatter.html</loc></url>
+<url><loc>/reference/corrheatmap.html</loc></url>
 <url><loc>/reference/index.html</loc></url>
 </urlset>
 

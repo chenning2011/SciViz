@@ -25,6 +25,22 @@
       <ul class="nav navbar-nav"><li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Articles
+
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/Astronomy.html">Astronomy</a>
+    </li>
+    <li>
+      <a href="../articles/Neuroscience.html">Neuroscience</a>
+    </li>
+    <li>
+      <a href="../articles/Psychology.html">Psychology</a>
+    </li>
+  </ul></li>
       </ul><ul class="nav navbar-nav navbar-right"></ul></div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -44,7 +60,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">astroScatter</span><span class="op">(</span><span class="va">data</span>, <span class="va">x</span>, <span class="va">y</span>, size <span class="op">=</span> <span class="fl">0.5</span>, alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">astroScatter</span><span class="op">(</span><span class="va">data</span>, <span class="va">x</span>, <span class="va">y</span>, size <span class="op">=</span> <span class="fl">0.5</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, color <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -56,11 +72,23 @@
 
 
 <dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
-<dd><p>a numeric variable</p></dd>
+<dd><p>string, a numeric variable</p></dd>
 
 
 <dt id="arg-y">y<a class="anchor" aria-label="anchor" href="#arg-y"></a></dt>
-<dd><p>a numeric variable</p></dd>
+<dd><p>string, a numeric variable</p></dd>
+
+
+<dt id="arg-size">size<a class="anchor" aria-label="anchor" href="#arg-size"></a></dt>
+<dd><p>(optional) size for the points on the graph. defaults to 0.5</p></dd>
+
+
+<dt id="arg-alpha">alpha<a class="anchor" aria-label="anchor" href="#arg-alpha"></a></dt>
+<dd><p>(optional) transparency for the points on the graph. defaults to 0.5</p></dd>
+
+
+<dt id="arg-color">color<a class="anchor" aria-label="anchor" href="#arg-color"></a></dt>
+<dd><p>(optional) string, color of the points. can supply a variable or the name of a color.</p></dd>
 
 </dl></div>
     <div id="value">
@@ -70,9 +98,9 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">astroScatter</span><span class="op">(</span><span class="va">starcatalog</span>, <span class="va">vmag</span>, <span class="va">bv_color</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">astroScatter</span><span class="op">(</span><span class="va">starcatalog</span>, <span class="st">"vmag"</span>, <span class="st">"bv_color"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="astroScatter-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span><span class="fu">astroScatter</span><span class="op">(</span><span class="va">starcatalog</span>, <span class="va">vmag</span>, <span class="va">bv_color</span>, size<span class="op">=</span><span class="fl">0.2</span>, alpha<span class="op">=</span><span class="fl">0.7</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">astroScatter</span><span class="op">(</span><span class="va">starcatalog</span>, <span class="st">"vmag"</span>, <span class="st">"bv_color"</span>, <span class="st">"multiple"</span>, size<span class="op">=</span><span class="fl">0.2</span>, alpha<span class="op">=</span><span class="fl">0.7</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="astroScatter-2.png" alt="" width="700" height="433"></span>
 </code></pre></div>
     </div>
