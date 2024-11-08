@@ -38,3 +38,4 @@ library(SciViz)
 ## basic example code
 ```
 
+describe the packages
