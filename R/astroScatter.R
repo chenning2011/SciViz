@@ -12,11 +12,10 @@
 #'@import dplyr
 #'@import colorspace
 #'@examples
-#'astroScatter(starcatalog, vmag, bv_color)
-#'astroScatter(starcatalog, vmag, bv_color, size=0.2, alpha=0.7)
+#'astroScatter(starcatalog, "vmag", "bv_color")
+#'astroScatter(starcatalog, "vmag", "bv_color", "multiple", size=0.2, alpha=0.7)
 
 
-#add option for color variable, group variable, facet_wrap, etc.
 astroScatter <- function(data, x, y, size=0.5, alpha=0.5, color=NULL){
   library(ggplot2)
   library(dplyr)
