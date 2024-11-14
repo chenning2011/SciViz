@@ -9,13 +9,21 @@
 #'@param opacity opacity of nodes. 0=transparent. 1=no transparency. Default is .9
 #'@param title default is "Network Graph"
 #'@param subtitle default is "Exploring Interactions and Relationships"
-#'@returns
+#'@returns Network graph
 #'@import dplyr
 #'@import igraph
 #'@import networkD3
 #'@import htmltools
 #'@import htmlwidgets
 #'@examples
+#'data_test <- data.frame(
+#'from=c("Neuron 1", "Neuron 1", "Neuron 2", "Neuron 3", "Neuron 5", "Neuron 4", "Neuron 5", "Neuron 7", "Neuron 6", "Neuron 8", "Neuron 9", "Neuron 11", "Neuron 10"),
+#'to=c("Neuron 2", "Neuron 3", "Neuron 1", "Neuron 4", "Neuron 1", "Neuron 6", "Neuron 2", "Neuron 8", "Neuron 2", "Neuron 9", "Neuron 5", "Neuron 7", "Neuron 1"),
+#'inital_test=c("A", "A", "B", "D", "C", "D", "E", "B", "C", "K", "E", "A", "M"),
+#'target_test=c("B", "E", "F", "A", "C", "A", "B", "Z", "A", "C", "A", "B", "K")
+#')
+#'interact_network_plot(data_test)
+#'interact_network_plot(data_test, initial_pt = 3, target_pt = 4)
 #'
 
 interact_network_plot <- function(data, initial_pt=1, target_pt=2, linkColour= "#666", nodeColour= "#69b3a2", opacity= 0.9, title="Network Graph", subtitle="Exploring Interactions and Relationships"){
@@ -54,16 +62,4 @@ interact_network_plot <- function(data, initial_pt=1, target_pt=2, linkColour= "
                               ))
 
 }
-
-
-# create a dataset:
-data_test <- data.frame(
-  from=c("Neuron 1", "Neuron 1", "Neuron 2", "Neuron 3", "Neuron 5", "Neuron 4", "Neuron 5", "Neuron 7", "Neuron 6", "Neuron 8", "Neuron 9", "Neuron 11", "Neuron 10"),
-  to=c("Neuron 2", "Neuron 3", "Neuron 1", "Neuron 4", "Neuron 1", "Neuron 6", "Neuron 2", "Neuron 8", "Neuron 2", "Neuron 9", "Neuron 5", "Neuron 7", "Neuron 1"),
-  inital_test=c("A", "A", "B", "D", "C", "D", "E", "B", "C", "K", "E", "A", "M"),
-  target_test=c("B", "E", "F", "A", "C", "A", "B", "Z", "A", "C", "A", "B", "K")
-)
-
-interact_network_plot(data_test)
-interact_network_plot(data_test, initial_pt = 3, target_pt = 4)
 

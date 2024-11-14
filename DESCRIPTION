@@ -17,6 +17,10 @@ Imports:
     ggalign,
     ggplot2,
     gplots,
+    htmltools,
+    htmlwidgets,
+    igraph,
+    networkD3,
     patchwork,
     rlang
 Depends: 
