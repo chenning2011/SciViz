@@ -8,7 +8,9 @@
 #'@export
 #'@import corrplot
 #'@import gplots
-#'@examples corrheatmap(mtcars, title="Correlations of Car Features", dend="row")
+#'@examples
+#'corrheatmap(mtcars, title="Correlations of Car Features", dend="row")
+#'corrheatmap(mtcars, title="Correlations of Car Features", dend="both")
 
 corrheatmap <- function(data, colors = c("blue", "white", "red"), title = "Correlation Heatmap", dend="both") {
   #load necessary libraries
