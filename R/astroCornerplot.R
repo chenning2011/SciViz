@@ -16,14 +16,10 @@
 #'@import rlang
 #'@examples
 #'astroCornerplot(starcatalog)
-#'astroCornerplot(starcatalog, contour=FALSE, fill="deepskyblue", palette = "Reds", bins=40)
+#'astroCornerplot(starcatalog, contour=FALSE, fill="red4", palette = "Reds", bins=40)
 
-#add options for colors of histograms
-#add options for color palette for 2d histogram
-#add options for the bins for all of the histograms (maybe just keep it simple and they all have the same number of bins)
-#second option for bins for the contour plot
-#add in possibility of more than 2 combinations
-#figure out how to include dataset in the package itself to provide user with examples
+#option for page, true it's all together, false they're separate
+#make sure someone who isn't in this field can understand how the graph works
 astroCornerplot <- function(data, varlist=names(data), contour=TRUE, fill="mediumpurple", palette="Inferno", bins=70, contourBins = 5){
   library(dplyr)
   library(ggplot2)
@@ -31,9 +27,24 @@ astroCornerplot <- function(data, varlist=names(data), contour=TRUE, fill="mediu
   library(colorspace)
   library(rlang)
 
+  #turning off warnings
+  options(warn=-1)
+
   #only take numeric variables from supplied variables in dataframe
   numeric_data <-select_if(data[,varlist], is.numeric)
   varlist <- names(numeric_data)
+
+  #error messaging up here
+  if(length(varlist)<2){
+    stop("You must provide at least 2 numeric variables.")
+  }
+
+  #need to get rid of variables with huge ranges
+  # for(var in varlist){
+  #   if (max(numeric_data[[var]])-min(numeric_data[[var]])>100000000){
+  #     stop(cat("The range in variable", var, "is too large. Consider performing a log transformation."))
+  #   }
+  # }
 
   #empty list for all plots
   plot_list <- list()
@@ -52,7 +63,7 @@ astroCornerplot <- function(data, varlist=names(data), contour=TRUE, fill="mediu
     var_y <- sym(var_y)
 
     #creating graph
-    plot_2d <- ggplot(data) +
+    plot_2d <- ggplot(numeric_data) +
       geom_bin2d(aes(x = !!var_x, y = !!var_y), bins=bins) +
       scale_fill_continuous_sequential(palette = palette, begin = 1, end = 0) +
       theme_bw()
@@ -63,8 +74,14 @@ astroCornerplot <- function(data, varlist=names(data), contour=TRUE, fill="mediu
         geom_density_2d(aes(x = !!var_x, y = !!var_y), color = "gray", bins=5)
     }
 
-    #appending to plot list
-    plot_list[[paste(var_x, var_y)]] <- plot_2d
+    #adding the plots into the list in the right order (hopefully)
+    if (!is.null(plot_list[[as_label(var_x)]])) {
+      #if there is something for the x variable already, adding in the new plot so that it's with the other items with that x variable
+      plot_list[[as_label(var_x)]] <- c(plot_list[[as_label(var_x)]], list(plot_2d))
+    } else {
+      #creating new list w/just the plot we just made, adds it to position with label for the x variable
+      plot_list[[as_label(var_x)]] <- list(plot_2d)
+    }
   }
 
   #creating histograms for all the variables
@@ -76,22 +93,27 @@ astroCornerplot <- function(data, varlist=names(data), contour=TRUE, fill="mediu
     a <- ggplot(numeric_data)+
       geom_histogram(aes(x=!!v), fill=fill, bins=bins)+
       theme_bw()
-    plot_list[[var]] <- a
+
+    #adding to corresponding xvar column
+    plot_list[[var]] <- c(list(a), plot_list[[var]])
   }
 
-  #placing all of the xvariables from each plot into a list
-  x_vars <- sapply(plot_list, function(plot) {
-    #creating ggplot_build objects to extract the name of the xvariable
-    a_built <- ggplot_build(plot)
-    x_var <- a_built$plot$layers[[1]]$mapping$x
-    x_var_clean <- gsub("~", "", x_var[[2]])
-    return(x_var_clean)
+  #need to create empty spaces for the columns that have less than max number of vars
+  #determining maximum it can be based on the length of each plot list
+  max_height <-max(sapply(plot_list, length))
+
+  #making empty plots to take up space
+  blank_plot <- ggplot() + theme_void() # Blank ggplot for padding
+  plot_list <- lapply(plot_list, function(col) {
+    #add as many blank plots as i need (based on the diff. btwn max height and actual height)
+    #then combine that with the plots that already exist
+    c(rep(list(blank_plot), max_height - length(col)), col)
   })
 
-  #sorting the plots by the x variables
-  sorted_plots <- plot_list[order(x_vars)]
+  #going through the list, creating sublists for column of plots that can be combined
+  plot_columns <- lapply(plot_list, wrap_plots, ncol=1)
 
-  #plotting them based on the sorted x variables
-  wrap_plots(sorted_plots, ncol = length(varlist))
+  #arranging the columns with each of the sub lists, should have same number of columns as number of variables
+  wrap_plots(plot_columns, ncol=length(varlist))
 }
 

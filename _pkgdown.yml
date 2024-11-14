@@ -1,0 +1,41 @@
+url: ~
+template:
+  bootstrap: 5
+  bootswatch: darkly
+reference:
+  - title: Main Functions
+    desc: ~
+    contents:
+      - '`apa_bar`'
+      - '`apa_line`'
+      - '`astroCornerplot`'
+      - '`astroScatter`'
+      - '`corrheatmap`'
+  - title: Datasets
+    desc: ~
+    contents:
+      - '`starcatalog`'
+navbar:
+  left:
+    - text: Getting Started
+      icon: fas fa-flask
+      href: articles/SciViz.html
+    - text: "Vignettes"
+      icon: fas fa-book-atlas
+      menu:
+      -  text: Astronomy
+         href: articles/Astronomy.html
+      -  text: Neuroscience
+         href: articles/Neuroscience.html
+      -  text: Pyschology
+         href: articles/Psychology.html
+    - icon: fas fa-clipboard-check
+      text: "Documentation"
+      href: reference/index.html
+  right:
+    - icon: fa-home
+      href: index.html
+
+
+
+

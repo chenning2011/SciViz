@@ -37,5 +37,5 @@ Create cornerplots for astronomy data for an unlimited number of paired variable
 }
 \examples{
 astroCornerplot(starcatalog)
-astroCornerplot(starcatalog, contour=FALSE, fill="deepskyblue", palette = "Reds", bins=40)
+astroCornerplot(starcatalog, contour=FALSE, fill="red4", palette = "Reds", bins=40)
 }

@@ -77,7 +77,7 @@ apa_bar(
  subtitle = "Comparison of Daily Steps Taken",
   x_label = "Day of the Week",
   y_label = "Average Steps",
-  bar_color = c("blue", "pink"),  # Blue for Male and Pink for Female
+  bar_color = c("pink", "blue"),  # Blue for Male and Pink for Female
   legend_title = "Gender"  # Adding legend title
 )
 # Example 2: Sample data for depression scores by treatment groups
