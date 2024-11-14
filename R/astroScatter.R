@@ -16,6 +16,7 @@
 #'@examples
 #'astroScatter(starcatalog, "vmag", "bv_color")
 #'astroScatter(starcatalog, "vmag", "bv_color", color = "multiple", palette = "Terrain", size = 0.2, alpha = 0.7)
+#'astroScatter(starcatalog, "vmag", "bv_color", color = "mediumpurple", palette = "Terrain", size = 0.2, alpha = 0.7)
 #'astroScatter(starcatalog, "vmag", "bv_color", group = "multiple")
 
 astroScatter <- function(data, x, y, size=0.5, alpha=0.5, color=NULL, group=NULL, palette="agSunset"){
@@ -69,10 +70,12 @@ astroScatter <- function(data, x, y, size=0.5, alpha=0.5, color=NULL, group=NULL
 
   #adding group, if group variable is supplied
   if (!is.null(group)) {
-    plot <- plot + facet_wrap(as.formula(paste("~", group)))
+    plot <- plot + facet_wrap(as.formula(paste("~", group)), labeller = label_both)
   }
 
   #returning final plot
   return(plot)
 }
+
+
 
