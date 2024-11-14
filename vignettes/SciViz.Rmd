@@ -1,0 +1,21 @@
+---
+title: "SciViz"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{SciViz}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+basic information on how to use this package
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(SciViz)
+```
