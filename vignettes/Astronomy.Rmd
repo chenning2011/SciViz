@@ -18,6 +18,26 @@ knitr::opts_chunk$set(
 library(SciViz)
 ```
 
+While this package only includes two functions for astronomy, both can be very important for dealing with the wide variety of numeric data that astronomers often encounter during their work. 
+
 ## Cornerplots 
 
+Cornerplots are often used in astronomy to identify the distributions of numeric variables. Each plot provides a 2d histogram for each pair of variables provided and a 1d histogram that shows the distribution of each variable on its own. An example is shown below. 
+
+```{r}
+astroCornerplot(starcatalog)
+```
+
+- describe how to interpret the graph 
+- describe how to customize the graph, what the options do, link to the color palette website 
+
 ## Scatterplots 
+
+- describe what a scatterplot is 
+
+```{r}
+astroScatter(starcatalog, "vmag", "bv_color")
+```
+
+- describe how to interpret the graph 
+- describe how to customize the graph, what the options do, link to the color palette website. 
