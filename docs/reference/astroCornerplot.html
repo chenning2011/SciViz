@@ -59,36 +59,36 @@
 
 
 <dl><dt id="arg-data">data<a class="anchor" aria-label="anchor" href="#arg-data"></a></dt>
-<dd><p>a data frame</p></dd>
+<dd><p>a data frame.</p></dd>
 
 
 <dt id="arg-varlist">varlist<a class="anchor" aria-label="anchor" href="#arg-varlist"></a></dt>
-<dd><p>character, list with all numeric variables to create the cornerplot and histograms with. defaults to all variables in the dataset</p></dd>
+<dd><p>character, list with all numeric variables to create the cornerplot and histograms with. defaults to all variables in the dataset.</p></dd>
 
 
 <dt id="arg-contour">contour<a class="anchor" aria-label="anchor" href="#arg-contour"></a></dt>
-<dd><p>logical, specify whether to overlay contour plot on 2d histogram</p></dd>
+<dd><p>(optional) logical, specify whether to overlay contour plot on 2d histogram, defaults to TRUE.</p></dd>
 
 
 <dt id="arg-fill">fill<a class="anchor" aria-label="anchor" href="#arg-fill"></a></dt>
-<dd><p>fill color for histograms, defaults to mediumpurple</p></dd>
+<dd><p>(optional) fill color for histograms, defaults to mediumpurple.</p></dd>
 
 
 <dt id="arg-palette">palette<a class="anchor" aria-label="anchor" href="#arg-palette"></a></dt>
-<dd><p>color palette for 2d histogram scale, defaults to inferno</p></dd>
+<dd><p>(optional) color palette for 2d histogram scale, defaults to Inferno. options are available through the <code>scale_fill_continuous_sequential</code> function in the colorspace package.</p></dd>
 
 
 <dt id="arg-bins">bins<a class="anchor" aria-label="anchor" href="#arg-bins"></a></dt>
-<dd><p>number of bins for all histograms, defaults to 70</p></dd>
+<dd><p>(optional) number of bins for all histograms, defaults to 70.</p></dd>
 
 
 <dt id="arg-contourbins">contourBins<a class="anchor" aria-label="anchor" href="#arg-contourbins"></a></dt>
-<dd><p>number of bins for contour plot, defaults to 5</p></dd>
+<dd><p>(optional) number of bins for contour plot, defaults to 5.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>corner plot with 2d histogram showing intersection of both variables and regular histogram for each variable</p>
+    <p>corner plot with 2d histogram showing intersection of both variables and regular histogram for each variable.</p>
     </div>
 
     <div class="section level2">
@@ -103,8 +103,10 @@
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>     intersect, setdiff, setequal, union</span>
 <span class="r-plt img"><img src="astroCornerplot-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span><span class="fu">astroCornerplot</span><span class="op">(</span><span class="va">starcatalog</span>, contour<span class="op">=</span><span class="cn">FALSE</span>, fill<span class="op">=</span><span class="st">"red4"</span>, palette <span class="op">=</span> <span class="st">"Reds"</span>, bins<span class="op">=</span><span class="fl">40</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">astroCornerplot</span><span class="op">(</span><span class="va">starcatalog</span>, contour<span class="op">=</span><span class="cn">FALSE</span>, fill<span class="op">=</span><span class="st">"mediumpurple"</span>, palette <span class="op">=</span> <span class="st">"Purples"</span>, bins<span class="op">=</span><span class="fl">40</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="astroCornerplot-2.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span><span class="fu">astroCornerplot</span><span class="op">(</span><span class="va">starcatalog</span>, varlist <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"vmag"</span>, <span class="st">"bv_color"</span><span class="op">)</span>, palette <span class="op">=</span> <span class="st">"Blues"</span>, fill<span class="op">=</span><span class="st">"dodgerblue3"</span>, bins <span class="op">=</span> <span class="fl">50</span>, contourBins <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="astroCornerplot-3.png" alt="" width="700" height="433"></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

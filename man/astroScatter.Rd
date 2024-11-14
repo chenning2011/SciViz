@@ -4,7 +4,16 @@
 \alias{astroScatter}
 \title{Astronomical Scatterplots}
 \usage{
-astroScatter(data, x, y, size = 0.5, alpha = 0.5, color = NULL)
+astroScatter(
+  data,
+  x,
+  y,
+  size = 0.5,
+  alpha = 0.5,
+  color = NULL,
+  group = NULL,
+  palette = "agSunset"
+)
 }
 \arguments{
 \item{data}{a data frame}
@@ -17,15 +26,20 @@ astroScatter(data, x, y, size = 0.5, alpha = 0.5, color = NULL)
 
 \item{alpha}{(optional) transparency for the points on the graph. defaults to 0.5}
 
-\item{color}{(optional) string, color of the points. can supply a variable or the name of a color.}
+\item{color}{(optional) string, color of the points. takes either a variable from the dataset or the name of a color.}
+
+\item{group}{(optional) string, facet variable for the graphs.}
+
+\item{palette}{(optional) string, color palette for points, if color provided is a variable. defaults to agSunset. see \code{scale_color_discrete_sequential} function in the colorspace package for palette options.}
 }
 \value{
-scatter plot with both variables
+scatter plot with all specified variables
 }
 \description{
 Create scatterplots for astronomy data, optimized for a large number of points
 }
 \examples{
 astroScatter(starcatalog, "vmag", "bv_color")
-astroScatter(starcatalog, "vmag", "bv_color", "multiple", size=0.2, alpha=0.7)
+astroScatter(starcatalog, "vmag", "bv_color", color = "multiple", palette = "Terrain", size = 0.2, alpha = 0.7)
+astroScatter(starcatalog, "vmag", "bv_color", group = "multiple")
 }

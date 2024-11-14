@@ -19,15 +19,15 @@ astroCornerplot(
 
 \item{varlist}{character, list with all numeric variables to create the cornerplot and histograms with. defaults to all variables in the dataset.}
 
-\item{contour}{logical, specify whether to overlay contour plot on 2d histogram.}
+\item{contour}{(optional) logical, specify whether to overlay contour plot on 2d histogram, defaults to TRUE.}
 
-\item{fill}{fill color for histograms, defaults to mediumpurple.}
+\item{fill}{(optional) fill color for histograms, defaults to mediumpurple.}
 
-\item{palette}{color palette for 2d histogram scale, defaults to inferno. options are available through the \code{scale_fill_continuous_sequential} function in the colorspace package.}
+\item{palette}{(optional) color palette for 2d histogram scale, defaults to Inferno. options are available through the \code{scale_fill_continuous_sequential} function in the colorspace package.}
 
-\item{bins}{number of bins for all histograms, defaults to 70.}
+\item{bins}{(optional) number of bins for all histograms, defaults to 70.}
 
-\item{contourBins}{number of bins for contour plot, defaults to 5.}
+\item{contourBins}{(optional) number of bins for contour plot, defaults to 5.}
 }
 \value{
 corner plot with 2d histogram showing intersection of both variables and regular histogram for each variable.

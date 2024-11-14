@@ -3,14 +3,21 @@ template:
   bootstrap: 5
   bootswatch: journal
 reference:
-  - title: Main Functions
+  - title: APA Graphing Functions
     desc: ~
     contents:
       - '`apa_bar`'
       - '`apa_line`'
+  - title: Graphing Functions for Astronomy
+    desc: ~
+    contents:
       - '`astroCornerplot`'
       - '`astroScatter`'
+  - title: Graphing Functions for Neuroscience
+    desc: ~
+    contents:
       - '`corrheatmap`'
+      - '`interact_network_plot`'
   - title: Datasets
     desc: ~
     contents:
@@ -35,7 +42,3 @@ navbar:
   right:
     - icon: fa-home
       href: index.html
-
-
-
-
