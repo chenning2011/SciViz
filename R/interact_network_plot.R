@@ -9,7 +9,7 @@
 #'@param opacity opacity of nodes. 0=transparent. 1=no transparency. Default is .9
 #'@param title default is "Network Graph"
 #'@param subtitle default is "Exploring Interactions and Relationships"
-#'@returns Network graph
+#'@returns an interactive network graph
 #'@import dplyr
 #'@import igraph
 #'@import networkD3

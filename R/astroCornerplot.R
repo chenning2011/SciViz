@@ -1,14 +1,14 @@
 #'@title Astronomical Cornerplots
 #'@description Create cornerplots for astronomy data for an unlimited number of paired variables.
 #'@export
-#'@param data a data frame
-#'@param varlist character, list with all numeric variables to create the cornerplot and histograms with. defaults to all variables in the dataset
-#'@param contour logical, specify whether to overlay contour plot on 2d histogram
-#'@param fill fill color for histograms, defaults to mediumpurple
-#'@param bins number of bins for all histograms, defaults to 70
-#'@param palette color palette for 2d histogram scale, defaults to inferno
-#'@param contourBins number of bins for contour plot, defaults to 5
-#'@returns corner plot with 2d histogram showing intersection of both variables and regular histogram for each variable
+#'@param data a data frame.
+#'@param varlist character, list with all numeric variables to create the cornerplot and histograms with. defaults to all variables in the dataset.
+#'@param contour (optional) logical, specify whether to overlay contour plot on 2d histogram, defaults to TRUE.
+#'@param fill (optional) fill color for histograms, defaults to mediumpurple.
+#'@param bins (optional) number of bins for all histograms, defaults to 70.
+#'@param palette (optional) color palette for 2d histogram scale, defaults to Inferno. options are available through the `scale_fill_continuous_sequential` function in the colorspace package.
+#'@param contourBins (optional) number of bins for contour plot, defaults to 5.
+#'@returns corner plot with 2d histogram showing intersection of both variables and regular histogram for each variable.
 #'@import dplyr
 #'@import ggplot2
 #'@import patchwork
@@ -17,6 +17,7 @@
 #'@examples
 #'astroCornerplot(starcatalog)
 #'astroCornerplot(starcatalog, contour=FALSE, fill="mediumpurple", palette = "Purples", bins=40)
+#'astroCornerplot(starcatalog, varlist = c("vmag", "bv_color"), palette = "Blues", fill="dodgerblue3", bins = 50, contourBins = 3)
 
 #option for page, true it's all together, false they're separate
 #make sure someone who isn't in this field can understand how the graph works
@@ -27,17 +28,21 @@ astroCornerplot <- function(data, varlist=names(data), contour=TRUE, fill="mediu
   library(colorspace)
   library(rlang)
 
+  #error messaging up here
+  if(length(varlist)<2){
+    stop("Please provide at least 2 numeric variables.")
+  }
+
+  if(!("data.frame" %in% class(data))){
+    stop("Data must be a data frame.")
+  }
+
   #turning off warnings
   options(warn=-1)
 
   #only take numeric variables from supplied variables in dataframe
   numeric_data <-select_if(data[,varlist], is.numeric)
   varlist <- names(numeric_data)
-
-  #error messaging up here
-  if(length(varlist)<2){
-    stop("You must provide at least 2 numeric variables.")
-  }
 
   #need to get rid of variables with huge ranges
   # for(var in varlist){

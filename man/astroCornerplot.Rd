@@ -15,27 +15,28 @@ astroCornerplot(
 )
 }
 \arguments{
-\item{data}{a data frame}
+\item{data}{a data frame.}
 
-\item{varlist}{character, list with all numeric variables to create the cornerplot and histograms with. defaults to all variables in the dataset}
+\item{varlist}{character, list with all numeric variables to create the cornerplot and histograms with. defaults to all variables in the dataset.}
 
-\item{contour}{logical, specify whether to overlay contour plot on 2d histogram}
+\item{contour}{logical, specify whether to overlay contour plot on 2d histogram.}
 
-\item{fill}{fill color for histograms, defaults to mediumpurple}
+\item{fill}{fill color for histograms, defaults to mediumpurple.}
 
-\item{palette}{color palette for 2d histogram scale, defaults to inferno}
+\item{palette}{color palette for 2d histogram scale, defaults to inferno. options are available through the \code{scale_fill_continuous_sequential} function in the colorspace package.}
 
-\item{bins}{number of bins for all histograms, defaults to 70}
+\item{bins}{number of bins for all histograms, defaults to 70.}
 
-\item{contourBins}{number of bins for contour plot, defaults to 5}
+\item{contourBins}{number of bins for contour plot, defaults to 5.}
 }
 \value{
-corner plot with 2d histogram showing intersection of both variables and regular histogram for each variable
+corner plot with 2d histogram showing intersection of both variables and regular histogram for each variable.
 }
 \description{
 Create cornerplots for astronomy data for an unlimited number of paired variables.
 }
 \examples{
 astroCornerplot(starcatalog)
-astroCornerplot(starcatalog, contour=FALSE, fill="red4", palette = "Reds", bins=40)
+astroCornerplot(starcatalog, contour=FALSE, fill="mediumpurple", palette = "Purples", bins=40)
+astroCornerplot(starcatalog, varlist = c("vmag", "bv_color"), palette = "Blues", fill="dodgerblue3", bins = 50, contourBins = 3)
 }

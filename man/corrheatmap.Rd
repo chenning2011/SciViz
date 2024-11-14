@@ -28,4 +28,5 @@ Calculates Pearson Correlation from a Matrix and plots resulting correlation val
 }
 \examples{
 corrheatmap(mtcars, title="Correlations of Car Features", dend="row")
+corrheatmap(mtcars, title="Correlations of Car Features", dend="both")
 }
