@@ -16,7 +16,7 @@
 #'@import rlang
 #'@examples
 #'astroCornerplot(starcatalog)
-#'astroCornerplot(starcatalog, contour=FALSE, fill="red4", palette = "Reds", bins=40)
+#'astroCornerplot(starcatalog, contour=FALSE, fill="mediumpurple", palette = "Purples", bins=40)
 
 #option for page, true it's all together, false they're separate
 #make sure someone who isn't in this field can understand how the graph works

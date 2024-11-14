@@ -1,7 +1,7 @@
 url: ~
 template:
   bootstrap: 5
-  bootswatch: darkly
+  bootswatch: journal
 reference:
   - title: Main Functions
     desc: ~
