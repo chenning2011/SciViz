@@ -76,13 +76,47 @@
 <span><span class="co">#&gt; loading 'SciViz'</span></span>
 <span><span class="co">#&gt; Warning: replacing previous import 'igraph::is_named' by 'rlang::is_named' when</span></span>
 <span><span class="co">#&gt; loading 'SciViz'</span></span></code></pre></div>
+<p>While this package only includes two functions for astronomy, both
+can be very important for dealing with the wide variety of numeric data
+that astronomers often encounter during their work.</p>
 <div class="section level2">
 <h2 id="cornerplots">Cornerplots<a class="anchor" aria-label="anchor" href="#cornerplots"></a>
 </h2>
+<p>Cornerplots are often used in astronomy to identify the distributions
+of numeric variables. Each plot provides a 2d histogram for each pair of
+variables provided and a 1d histogram that shows the distribution of
+each variable on its own. An example is shown below.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/astroCornerplot.html">astroCornerplot</a></span><span class="op">(</span><span class="va">starcatalog</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'dplyr'</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:stats':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     filter, lag</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span></code></pre></div>
+<p><img src="Astronomy_files/figure-html/unnamed-chunk-2-1.png" width="700"></p>
+<ul>
+<li>describe how to interpret the graph</li>
+<li>describe how to customize the graph, what the options do, link to
+the color palette website</li>
+</ul>
 </div>
 <div class="section level2">
 <h2 id="scatterplots">Scatterplots<a class="anchor" aria-label="anchor" href="#scatterplots"></a>
 </h2>
+<ul>
+<li>describe what a scatterplot is</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/astroScatter.html">astroScatter</a></span><span class="op">(</span><span class="va">starcatalog</span>, <span class="st">"vmag"</span>, <span class="st">"bv_color"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="Astronomy_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
+<ul>
+<li>describe how to interpret the graph</li>
+<li>describe how to customize the graph, what the options do, link to
+the color palette website.</li>
+</ul>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
