@@ -18,17 +18,11 @@ You can install the development version of SciViz from
 [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("pak")
-pak::pak("chenning2011/SciViz")
+# install.packages("remotes")
+remotes::install_github("chenning2011/SciViz")
 ```
 
-## Example
+## How to use
 
-This is a basic example which shows you how to solve a common problem:
-
-``` r
-library(SciViz)
-## basic example code
-```
-
-describe the packages
+To learn more about how to use this package, check out the [Getting
+Started]() and [Documentation]() pages on this website.

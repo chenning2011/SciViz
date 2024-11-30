@@ -1,4 +1,4 @@
-#'@title Astronomical Scatterplots
+#'@title Scatterplots for Large Amounts of Data
 #'@description Create scatterplots for astronomy data, optimized for a large number of points
 #'@export
 #'@param data a data frame
@@ -14,12 +14,12 @@
 #'@import dplyr
 #'@import colorspace
 #'@examples
-#'astroScatter(starcatalog, "vmag", "bv_color")
-#'astroScatter(starcatalog, "vmag", "bv_color", color = "multiple", palette = "Terrain", size = 0.2, alpha = 0.7)
-#'astroScatter(starcatalog, "vmag", "bv_color", color = "mediumpurple", palette = "Terrain", size = 0.2, alpha = 0.7)
-#'astroScatter(starcatalog, "vmag", "bv_color", group = "multiple")
+#'scatterplot(starcatalog, "vmag", "bv_color")
+#'scatterplot(starcatalog, "vmag", "bv_color", color = "multiple", palette = "Terrain", size = 0.2, alpha = 0.7)
+#'scatterplot(starcatalog, "vmag", "bv_color", color = "mediumpurple", palette = "Terrain", size = 0.2, alpha = 0.7)
+#'scatterplot(starcatalog, "vmag", "bv_color", group = "multiple")
 
-astroScatter <- function(data, x, y, size=0.5, alpha=0.5, color=NULL, group=NULL, palette="agSunset"){
+scatterplot <- function(data, x, y, size=0.5, alpha=0.5, color=NULL, group=NULL, palette="agSunset"){
   library(ggplot2)
   library(dplyr)
   library(colorspace)

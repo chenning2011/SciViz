@@ -7,7 +7,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-basic information on how to use this package
+This package was designed for scientists to create beautiful and publishable graphs without needing to learn the ins and outs of coding graphs in R. While these functions were created with astronomy, neuroscience, and psychology in mind, they can be used in any fields. 
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
@@ -19,3 +19,25 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(SciViz)
 ```
+
+## APA Graphs 
+
+### Line 
+
+### Bar 
+
+## Network Plots and Heatmaps 
+
+### Network Plot 
+
+### Heatmap 
+
+## Corner- and Scatterplots
+
+### Cornerplots 
+
+### Scatterplots 
+
+
+
+
