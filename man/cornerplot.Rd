@@ -23,7 +23,7 @@ cornerplot(
 
 \item{fill}{(optional) fill color for histograms, defaults to mediumpurple.}
 
-\item{palette}{(optional) color palette for 2d histogram scale, defaults to Inferno. options are available through the \code{scale_fill_continuous_sequential} function in the colorspace package.}
+\item{palette}{(optional) color palette for 2d histogram scale, defaults to Inferno. Palette options have been taken from the \href{https://colorspace.r-forge.r-project.org/articles/ggplot2_color_scales.html#available-palettes}{colorspace} package.}
 
 \item{bins}{(optional) number of bins for all histograms, defaults to 70.}
 

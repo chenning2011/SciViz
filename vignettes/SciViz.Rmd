@@ -38,9 +38,9 @@ library(SciViz)
 
 Cornerplots are often used in astronomy to understand the distribution of numeric variables. These are often used to display the results from Markov Chain Monte Carlo (MCMC) simulations, and are used by astronomers to identify if their variables have Gaussian distributions. While those methods are likely familiar to astronomers who may be using this package, even if you aren't sure what an MCMC simulation of a Gaussian distribution is, there are other ways to utilize this package for a better understanding of your data. 
 
-Let's look at an example with the dataset from this package, [starcatalog](). This dataset has information on 8774 stars, and we might be interested in seeing the relationships between the numeric variables in this dataset. Here is how you can make a cornerplot, using all of the default settings. 
+Let's look at an example with the dataset from this package, [starcatalog](). This dataset has information on 8774 stars, and we might be interested in seeing the relationships between the numeric variables in this dataset. Here is how you can make a cornerplot, using all of the default settings. You only need to specify a dataset, and the function will create the requested graph.  
 
-```{r}
+```{r, warning = F, message = F}
 cornerplot(starcatalog)
 ```
 
@@ -51,6 +51,7 @@ There are many ways you can customize these plots to make them better suit your 
 ```{r}
 cornerplot(starcatalog, varlist = c("vmag", "bv_color"), palette = "Blues", fill="dodgerblue3", contour = FALSE)
 ```
+
 Here, we have changed the graph so that both histograms have a blue fill/palette, only two of the variables are displayed, and the contour has been removed. 
 
 Further customization can be achieved through changing the number of bins and contour lines. The default number of bins for the histograms is 30, but can be adjusted down to any number of your choosing. Similarly, the default number of contours is 3. The `bins` parameter adjusts the number of bins in both the 1d and 2d histograms, while the `contourBins` parameter is only used when there is a contour plot on top of the 2d histograms.
@@ -58,10 +59,35 @@ Further customization can be achieved through changing the number of bins and co
 ```{r}
 cornerplot(starcatalog, bins = 50, contourBins = 5)
 ```
+
 In the example above, it is harder to see the distributions because there are so many bins, so be sure to change the `bins` and `contourBins` parameters until you get a result you are happy with. 
 
 ### Scatterplots 
 
+The scatterplots included in this package have been optimized to work with large datasets, and can be customized to fit your preferences. These plots can be used to look at any two numeric variables and the relationship between them. You must specify the dataset, an x-variable, and a y-variable. 
 
+```{r, warning = F, message = F}
+scatterplot(starcatalog, x = "vmag", y = "bv_color")
+```
 
+In this example, we can see where there are large concentrations of each variable, and the relationship between the two variables. To investigate the variables in the dataset further, you can use a grouping or color variable to identify how this relationship is changed by addding a categorical variable into the mix. 
 
+```{r}
+scatterplot(starcatalog, "vmag", "bv_color", color = "multiple", palette = "Viridis")
+```
+
+Sometimes it can be hard to make out the different colors on this graph, so you can also facet the variable instead of changing the color of the points. Here is an example using the same variable as the graph above. 
+
+```{r}
+scatterplot(starcatalog, "vmag", "bv_color", group = "multiple", color = "multiple", palette = "Viridis")
+```
+
+Now we can see that it was hard to see the multiples of A, R, and I because there were very few stars with these multiples! You do not have to specify both group and color and the points will default to black if no color is specified. 
+
+Other customizable features of this graph include changing the `alpha` or the opacity of the points, and the `size` of these points. Both the `size` and the `alpha` default to 0.5. Here is an example of how changing these parameters changes the graph, using the graph that we've been creating. The `color` parameter has been changed to blue4, to make the points easier to see against the white background. 
+
+```{r}
+scatterplot(starcatalog, "vmag", "bv_color", group = "multiple", color = "blue4", palette = "Viridis", size = 0.2, alpha = 0.8)
+```
+
+Here, the points are smaller but also less opaque, which makes each individual point easier to see. Each of these parameters can be customized to your liking, until you have a graph that adequately displays all of the information you want to capture. 

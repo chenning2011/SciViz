@@ -2,7 +2,7 @@
 % Please edit documentation in R/scatterplot.R
 \name{scatterplot}
 \alias{scatterplot}
-\title{Astronomical Scatterplots}
+\title{Scatterplots for Large Amounts of Data}
 \usage{
 scatterplot(
   data,

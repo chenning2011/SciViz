@@ -1,5 +1,6 @@
 Package: SciViz
 Title: Creates Publication-Ready Visualizations for Scientific Data.
+Version: 0.0.0.9000
 Authors@R: 
     c(person("Caleb", "Henning", , "chenning@wesleyan.edu", role = c("aut", "cre")),
     person("Angelica", "Crown", , "acrown@wesleyan.edu", role="aut"),
