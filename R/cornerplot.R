@@ -6,7 +6,7 @@
 #'@param contour (optional) logical, specify whether to overlay contour plot on 2d histogram, defaults to TRUE.
 #'@param fill (optional) fill color for histograms, defaults to mediumpurple.
 #'@param bins (optional) number of bins for all histograms, defaults to 70.
-#'@param palette (optional) color palette for 2d histogram scale, defaults to Inferno. options are available through the `scale_fill_continuous_sequential` function in the colorspace package.
+#'@param palette (optional) color palette for 2d histogram scale, defaults to Inferno. Palette options have been taken from the [colorspace](https://colorspace.r-forge.r-project.org/articles/ggplot2_color_scales.html#available-palettes) package.
 #'@param contourBins (optional) number of bins for contour plot, defaults to 5.
 #'@returns corner plot with 2d histogram showing intersection of both variables and regular histogram for each variable. Please note that the function can take a while to load, especially if you are running it on more than five variables.
 #'@import dplyr
@@ -21,7 +21,7 @@
 
 #option for page, true it's all together, false they're separate
 #make sure someone who isn't in this field can understand how the graph works
-cornerplot <- function(data, varlist=names(data), contour=TRUE, fill="mediumpurple", palette="Inferno", bins=30, contourBins = 3){
+cornerplot <- function(data, varlist=names(data), contour=TRUE, fill="mediumpurple", palette="Inferno", bins = 30 , contourBins = 3){
   library(dplyr)
   library(ggplot2)
   library(patchwork)
@@ -69,7 +69,7 @@ cornerplot <- function(data, varlist=names(data), contour=TRUE, fill="mediumpurp
     #contour option
     if (contour) {
       plot_2d <- plot_2d +
-        geom_density_2d(aes(x = !!var_x, y = !!var_y), color = "gray", bins=5)
+        geom_density_2d(aes(x = !!var_x, y = !!var_y), color = "gray", bins=contourBins)
     }
 
     #adding the plots into the list in the right order (hopefully)
