@@ -8,14 +8,17 @@
 #'@export
 #'@import corrplot
 #'@import gplots
+#'@import grDevices
 #'@examples
 #'corrheatmap(mtcars, title="Correlations of Car Features", dend="row")
 #'corrheatmap(mtcars, title="Correlations of Car Features", dend="both")
 
-corrheatmap <- function(data, colors = c("blue", "white", "red"), title = "Correlation Heatmap", dend="both") {
+
+corrheatmap <- function(data, colors = c("#00ffff", "#ff00ff", "#ffff00"), n_colors=20, title = "Correlation Heatmap", dend="both") {
   #load necessary libraries
   library(corrplot)
   library(gplots)
+  library(grDevices)
 
   #new environment because graph is too large for RStudio
   dev.new()
@@ -24,7 +27,7 @@ corrheatmap <- function(data, colors = c("blue", "white", "red"), title = "Corre
   c <- cor(data)
 
   #create color palette based on user input or default
-  color <- colorRampPalette(colors) (20)
+  color <- colorRampPalette(colors) (n_colors)
 
   #create graph in new window
   heatmap.2(c,
