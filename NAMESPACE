@@ -2,10 +2,10 @@
 
 export(apa_bar)
 export(apa_line)
-export(cornerplot)
+export(astroCornerplot)
+export(astroScatter)
 export(corrheatmap)
 export(interact_network_plot)
-export(scatterplot)
 import(colorspace)
 import(corrplot)
 import(dplyr)

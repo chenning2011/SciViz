@@ -1,16 +1,21 @@
-title: SciViz
-url: https://github.com/chenning2011/SciViz
+url: ~
 template:
   bootstrap: 5
   bootswatch: journal
 reference:
-  - title: Main Functions
+  - title: APA Graphing Functions
     desc: ~
     contents:
       - '`apa_bar`'
       - '`apa_line`'
-      - '`cornerplot`'
-      - '`scatterplot`'
+  - title: Graphing Functions for Astronomy
+    desc: ~
+    contents:
+      - '`astroCornerplot`'
+      - '`astroScatter`'
+  - title: Graphing Functions for Neuroscience
+    desc: ~
+    contents:
       - '`corrheatmap`'
       - '`interact_network_plot`'
   - title: Datasets
@@ -22,6 +27,15 @@ navbar:
     - text: Getting Started
       icon: fas fa-flask
       href: articles/SciViz.html
+    - text: "Vignettes"
+      icon: fas fa-book-atlas
+      menu:
+      -  text: Astronomy
+         href: articles/Astronomy.html
+      -  text: Neuroscience
+         href: articles/Neuroscience.html
+      -  text: Pyschology
+         href: articles/Psychology.html
     - icon: fas fa-clipboard-check
       text: "Documentation"
       href: reference/index.html

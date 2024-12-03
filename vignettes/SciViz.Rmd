@@ -32,7 +32,95 @@ library(SciViz)
 
 ### Heatmap 
 
-## Corner- and Scatterplots
+Heatmaps use color to graphically represent relationships between many variables or observations. They originated in the 19th century, where scientists would manually draw each "pixel" in grayscale. 
+
+<img src="og_grayscale_heatmap.jpg" alt="Manually drawn heatmap from 1873 Paris." width="200"/>
+
+Correlation heatmaps are used in neuroscience to illustrate connectivity between brain regions. This is often done by taking electroencephalography data of the brain and consequently plotting time on both axes, with color demonstrating relative correlation values. This is shown in the example below. 
+
+<img src="neuro_heatmap_example.heic" alt="Heatmap of brain regions with time on both axes." width="200"/>
+
+This image shows an example of a heatmap of brain regions with time on both axes. It shows the difference in connectivity when on ketamine, midazolam, before falling asleep, and sleeping all compared to controls. The red line along the diagonal demonstrates how each time point is 100% correlated to itself. Electroencephalography data taken in monkeys by [Professor Teichert's Lab](https://www.teichert.pitt.edu/index.html) at Pittsburgh University. 
+
+Unfortunately, the datasets used to make plots like this in real research labs is classified due to regulations about data privacy. So we will use [mtcars](https://www.statology.org/mtcars-dataset-r/) to demonstrate the use of this package's `corrheatmap` function. 
+
+This `corrheatmap` function uses the packages [corrplots](https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html) and [gplots](https://www.rdocumentation.org/packages/gplots/versions/3.2.0) to create a correlation heatmap for as many numeric variables and observations as the user desires. If using a large dataset, the `n_colors` argument should be increased accordingly. 
+
+First, the function creates the correlation values to plot. 
+```{r, warning = F, message = F}
+data(mtcars)
+cor(mtcars)
+```
+
+Then, it creates a color palatte from the colors given in the `colors` argument.
+```{r, warning = F, message = F}
+library(grDevices)
+colorRampPalette(c("#00ffff", "#ff00ff", "#ffff00")) (20)
+```
+
+Finally, it creates the graph in a new Quartz window. 
+```{r, warning = F, message = F}
+library(corrplot)
+library(gplots)
+#library(grDevices)
+
+dev.new()
+
+#create correlation values
+c <- cor(mtcars)
+
+#create color palette based on user input or default
+color <- colorRampPalette(c("#00ffff", "#ff00ff", "#ffff00")) (20)
+
+#create graph in new window
+heatmap.2(c,
+          col = color,
+          na.rm = TRUE,
+          dendrogram = "both",
+          key = TRUE,
+          symm = TRUE,
+          margins = c(10, 10),  #Adjust margins to fit labels
+          cexRow = 1,           #Adjust row label size
+          cexCol = 1,           #Adjust column label size
+          las = 3,              #Angles column labels
+          trace = "none",       #Turn off tracing lines
+          main = "mtcars Correlation Heatmap")         #Add the title
+
+```
+
+You can specify if you want dendrograms on both the rows and the columns, just the columns, just the rows, or no dendrogram.
+```{r, warning = F, message = F}
+corrheatmap(mtcars, title="Correlations of Car Features", dend="both")
+```
+
+```{r, warning = F, message = F}
+corrheatmap(mtcars, title="Correlations of Car Features", dend="row")
+```
+
+```{r, warning = F, message = F}
+corrheatmap(mtcars, title="Correlations of Car Features", dend="col")
+```
+
+```{r, warning = F, message = F}
+corrheatmap(mtcars, title="Correlations of Car Features", dend="none")
+```
+
+Only one argument is needed, `data`, a matrix or a data frame. The data must be numeric, with all categorical variables dummy coded, in order for correlation values to be calculated. 
+
+Optional arguments are `colors`, `n_colors`, `title`, and `dend` for addition of a dendrogram to rows, columns, or both.
+`colors`: A vector of 3 colors. Defualt is magenta (#ff00ff), cyan (#00ffff), and yellow (#ffff00). The color argument uses the package [grDevices](https://www.rdocumentation.org/packages/grDevices/versions/3.6.2) [colorRampPallete](https://www.rdocumentation.org/packages/grDevices/versions/3.6.2/topics/colorRamp) function, and thus can take a vector of colors in agreement with the valid argumnents of [col2rgb](https://www.rdocumentation.org/packages/grDevices/versions/3.6.2/topics/col2rgb). Colors can be  hexadecimal form, color name (as listed by [colors()](), or a positive integer i, meaning palatte()[i].
+`n_colors`: number of colors to be created in pallate from `colors` argument. Default is 20. Increase for large datasets. 
+`title`: A string of characters. Default is "Correlation Heatmap".
+`dend`: A string; "row", "column", "both", or "none". Default is "both".
+
+The `corrheatmap` function returns a correlation heatmap in a new Quartz window with a heatmap, title, color key and histogram, axis labels, and optional dendrograms. 
+
+#### Notes and Considerations
+*Even with a relatively small dataset such as `mtcars`, when the `dend` argument is specified as "both", the window needed to print the plot is too large for RStudio. The function is set to open a new Quartz window when the function is run, so do not be surprised when nothing pops up in the Plots window in RStudio. The plot will appear in a separate window. This is done using the [grDevices](https://www.rdocumentation.org/packages/grDevices/versions/3.6.2) package's [dev.new](https://www.rdocumentation.org/packages/grDevices/versions/3.6.2/topics/dev) function. 
+*If you have already run the function and run it a second time, sometimes the window is updated to the new graph, but is not brought to the front of your screen. If this happens, look for a hidden window behind your other windows. 
+
+
+## Cornerplots and Scatterplots
 
 ### Cornerplots 
 

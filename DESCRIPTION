@@ -1,11 +1,11 @@
 Package: SciViz
-Title: Creates Publication-Ready Visualizations for Scientific Data.
+Title: Creates Publication-Ready Visualizations for Astronomy, Psychology, and Neuroscience Data
 Version: 0.0.0.9000
 Authors@R: 
     c(person("Caleb", "Henning", , "chenning@wesleyan.edu", role = c("aut", "cre")),
     person("Angelica", "Crown", , "acrown@wesleyan.edu", role="aut"),
     person("Larissa", "Xu", , "lxu01@wesleyan.edu", role="aut"))
-Description: This package allows scientists to create publication-ready visualizations without having knowledge of how to code graphs in R. 
+Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -29,5 +29,3 @@ Suggests:
     knitr,
     rmarkdown
 VignetteBuilder: knitr
-URL: https://github.com/chenning2011/SciViz
-BugReports: https://github.com/chenning2011/SciViz/issues

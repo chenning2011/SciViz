@@ -1,27 +1,27 @@
-#'@title Cornerplots
-#'@description Create cornerplots for numeric data using an unlimited number of paired variables. While you can use an unlimited number of variables, it is not recommended to use more than six numeric variables.
+#'@title Astronomical Cornerplots
+#'@description Create cornerplots for astronomy data for an unlimited number of paired variables.
 #'@export
 #'@param data a data frame.
 #'@param varlist character, list with all numeric variables to create the cornerplot and histograms with. defaults to all variables in the dataset.
 #'@param contour (optional) logical, specify whether to overlay contour plot on 2d histogram, defaults to TRUE.
 #'@param fill (optional) fill color for histograms, defaults to mediumpurple.
 #'@param bins (optional) number of bins for all histograms, defaults to 70.
-#'@param palette (optional) color palette for 2d histogram scale, defaults to Inferno. Palette options have been taken from the [colorspace](https://colorspace.r-forge.r-project.org/articles/ggplot2_color_scales.html#available-palettes) package.
+#'@param palette (optional) color palette for 2d histogram scale, defaults to Inferno. options are available through the `scale_fill_continuous_sequential` function in the colorspace package.
 #'@param contourBins (optional) number of bins for contour plot, defaults to 5.
-#'@returns corner plot with 2d histogram showing intersection of both variables and regular histogram for each variable. Please note that the function can take a while to load, especially if you are running it on more than five variables.
+#'@returns corner plot with 2d histogram showing intersection of both variables and regular histogram for each variable.
 #'@import dplyr
 #'@import ggplot2
 #'@import patchwork
 #'@import colorspace
 #'@import rlang
 #'@examples
-#'cornerplot(starcatalog)
-#'cornerplot(starcatalog, contour=FALSE, fill="mediumpurple", palette = "Purples", bins=40)
-#'cornerplot(starcatalog, varlist = c("vmag", "bv_color"), palette = "Blues", fill="dodgerblue3", bins = 50, contourBins = 3)
+#'astroCornerplot(starcatalog)
+#'astroCornerplot(starcatalog, contour=FALSE, fill="mediumpurple", palette = "Purples", bins=40)
+#'astroCornerplot(starcatalog, varlist = c("vmag", "bv_color"), palette = "Blues", fill="dodgerblue3", bins = 50, contourBins = 3)
 
 #option for page, true it's all together, false they're separate
 #make sure someone who isn't in this field can understand how the graph works
-cornerplot <- function(data, varlist=names(data), contour=TRUE, fill="mediumpurple", palette="Inferno", bins = 30 , contourBins = 3){
+astroCornerplot <- function(data, varlist=names(data), contour=TRUE, fill="mediumpurple", palette="Inferno", bins=70, contourBins = 5){
   library(dplyr)
   library(ggplot2)
   library(patchwork)
@@ -43,6 +43,13 @@ cornerplot <- function(data, varlist=names(data), contour=TRUE, fill="mediumpurp
   #only take numeric variables from supplied variables in dataframe
   numeric_data <-select_if(data[,varlist], is.numeric)
   varlist <- names(numeric_data)
+
+  #need to get rid of variables with huge ranges
+  # for(var in varlist){
+  #   if (max(numeric_data[[var]])-min(numeric_data[[var]])>100000000){
+  #     stop(cat("The range in variable", var, "is too large. Consider performing a log transformation."))
+  #   }
+  # }
 
   #empty list for all plots
   plot_list <- list()
@@ -69,7 +76,7 @@ cornerplot <- function(data, varlist=names(data), contour=TRUE, fill="mediumpurp
     #contour option
     if (contour) {
       plot_2d <- plot_2d +
-        geom_density_2d(aes(x = !!var_x, y = !!var_y), color = "gray", bins=contourBins)
+        geom_density_2d(aes(x = !!var_x, y = !!var_y), color = "gray", bins=5)
     }
 
     #adding the plots into the list in the right order (hopefully)
@@ -111,18 +118,7 @@ cornerplot <- function(data, varlist=names(data), contour=TRUE, fill="mediumpurp
   #going through the list, creating sublists for column of plots that can be combined
   plot_columns <- lapply(plot_list, wrap_plots, ncol=1)
 
-  #creating chunks so there are no more than 3 columns on each page
-  chunks <- split(plot_columns, ceiling(seq_along(plot_columns) / 3 ))
-
-  #getting the number of pages
-  total_pages <- length(chunks)
-
-  #show each page, ask user to press enter if there is more than one page
-  for (i in seq_along(chunks)) {
-    print(wrap_plots(chunks[[i]], ncol = length(chunks[[i]])))
-    if (total_pages > 1 && i < total_pages) {
-      readline(prompt = "Press Enter to see the next page...")
-    }
-  }
+  #arranging the columns with each of the sub lists, should have same number of columns as number of variables
+  wrap_plots(plot_columns, ncol=length(varlist))
 }
 
