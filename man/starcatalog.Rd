@@ -18,7 +18,7 @@ A data frame with 8774 rows and 8 variables:
 }
 }
 \source{
-Astronomical data provided by Wesleyan's Astronomy department.
+Open source astronomical data. Originally found on the internet, provided for use in this package by Wesleyan's Astronomy Department.
 }
 \usage{
 starcatalog

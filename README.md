@@ -1,6 +1,8 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+<img src = "science-6566158_1280.png" width = 500>
+
 # SciViz
 
 <!-- badges: start -->
@@ -25,4 +27,6 @@ remotes::install_github("https://github.com/chenning2011/SciViz")
 ## How to use
 
 To learn more about how to use this package, check out the [Getting
-Started]() and [Documentation]() pages on this website.
+Started](https://chenning2011.github.io/SciViz/articles/SciViz.html) and
+[Documentation](https://chenning2011.github.io/SciViz/reference/index.html)
+pages on this website.

@@ -235,11 +235,12 @@ distributions. While those methods are likely familiar to astronomers
 who may be using this package, even if you aren’t sure what an MCMC
 simulation of a Gaussian distribution is, there are other ways to
 utilize this package for a better understanding of your data.</p>
-<p>Let’s look at an example with the dataset from this package, <a href="">starcatalog</a>. This dataset has information on 8774 stars, and
-we might be interested in seeing the relationships between the numeric
-variables in this dataset. Here is how you can make a cornerplot, using
-all of the default settings. You only need to specify a dataset, and the
-function will create the requested graph.</p>
+<p>Let’s look at an example with the dataset from this package, <a href="https://chenning2011.github.io/SciViz/reference/starcatalog.html" class="external-link">starcatalog</a>.
+This dataset has information on 8774 stars, and we might be interested
+in seeing the relationships between the numeric variables in this
+dataset. Here is how you can make a cornerplot, using all of the default
+settings. You only need to specify a dataset, and the function will
+create the requested graph.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/cornerplot.html">cornerplot</a></span><span class="op">(</span><span class="va">starcatalog</span><span class="op">)</span></span></code></pre></div>
 <p><img src="SciViz_files/figure-html/unnamed-chunk-9-1.png" width="700"></p>
@@ -264,7 +265,7 @@ value of around zero.</p>
 suit your needs. For example, if you only want to examine the
 relationships between two of the variables in starcatalog, you can
 specify them. You can also remove the countor plot that sits on top of
-the cornerplot, and change the color of both kinds of histograms. Any <a href="https://sape.inf.usi.ch/quick-reference/ggplot2/colour" class="external-link"><code>ggplot2</code>
+the cornerplot, and change the color of both kinds of histograms. Any <a href="https://sape.inf.usi.ch/quick-reference/ggplot2/colour" class="external-link">ggplot2
 color</a> can be used to change the color of the histograms, and color
 palette options have been taken from the <a href="https://colorspace.r-forge.r-project.org/articles/ggplot2_color_scales.html#available-palettes" class="external-link">colorspace</a>
 package.</p>

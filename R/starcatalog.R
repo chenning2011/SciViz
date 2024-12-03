@@ -7,7 +7,7 @@
 #' @name starcatalog
 #' @keywords datasets
 #'
-#' @source Astronomical data provided by Wesleyan's Astronomy department.
+#' @source Open source astronomical data. Originally found on the internet, provided for use in this package by Wesleyan's Astronomy Department.
 #' @format A data frame with 8774 rows and 8 variables:
 #' \describe{
 #'   \item{\code{name}}{character. name of the star.}
