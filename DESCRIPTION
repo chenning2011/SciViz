@@ -29,3 +29,5 @@ Suggests:
     knitr,
     rmarkdown
 VignetteBuilder: knitr
+URL: https://github.com/chenning2011/SciViz
+BugReports: https://github.com/chenning2011/SciViz/issues
