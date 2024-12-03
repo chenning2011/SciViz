@@ -6,7 +6,8 @@
 \usage{
 corrheatmap(
   data,
-  colors = c("blue", "white", "red"),
+  colors = c("#00ffff", "#ff00ff", "#ffff00"),
+  n_colors = 20,
   title = "Correlation Heatmap",
   dend = "both"
 )

@@ -43,8 +43,7 @@ data_test <- data.frame(
 from=c("Neuron 1", "Neuron 1", "Neuron 2", "Neuron 3", "Neuron 5", "Neuron 4", "Neuron 5", "Neuron 7", "Neuron 6", "Neuron 8", "Neuron 9", "Neuron 11", "Neuron 10"),
 to=c("Neuron 2", "Neuron 3", "Neuron 1", "Neuron 4", "Neuron 1", "Neuron 6", "Neuron 2", "Neuron 8", "Neuron 2", "Neuron 9", "Neuron 5", "Neuron 7", "Neuron 1"),
 inital_test=c("A", "A", "B", "D", "C", "D", "E", "B", "C", "K", "E", "A", "M"),
-target_test=c("B", "E", "F", "A", "C", "A", "B", "Z", "A", "C", "A", "B", "K")
-)
+target_test=c("B", "E", "F", "A", "C", "A", "B", "Z", "A", "C", "A", "B", "K"))
 interact_network_plot(data_test)
 interact_network_plot(data_test, initial_pt = 3, target_pt = 4)
 
