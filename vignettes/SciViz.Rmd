@@ -20,11 +20,11 @@ knitr::opts_chunk$set(
 library(SciViz)
 ```
 
-## APA Graphs 
+## APA Regulation Ready Graphs 
 
-### Line 
+### APA Line Graph
 
-### Bar 
+### APA Bar Graph
 
 ## Network Plots and Heatmaps 
 
@@ -45,6 +45,16 @@ This image shows an example of a heatmap of brain regions with time on both axes
 Unfortunately, the datasets used to make plots like this in real research labs is classified due to regulations about data privacy. So we will use [mtcars](https://www.statology.org/mtcars-dataset-r/) to demonstrate the use of this package's `corrheatmap` function. 
 
 This `corrheatmap` function uses the packages [corrplots](https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html) and [gplots](https://www.rdocumentation.org/packages/gplots/versions/3.2.0) to create a correlation heatmap for as many numeric variables and observations as the user desires. If using a large dataset, the `n_colors` argument should be increased accordingly. 
+
+Only one argument is necessary, `data`, a matrix or a data frame. The data must be numeric, with all categorical variables dummy coded, in order for correlation values to be calculated. 
+
+Optional arguments are `colors`, `n_colors`, `title`, and `dend` for addition of a dendrogram to rows, columns, or both.
+`colors`: A vector of 3 colors. Defualt is magenta (#ff00ff), cyan (#00ffff), and yellow (#ffff00). The color argument uses the package [grDevices](https://www.rdocumentation.org/packages/grDevices/versions/3.6.2) [colorRampPallete](https://www.rdocumentation.org/packages/grDevices/versions/3.6.2/topics/colorRamp) function, and thus can take a vector of colors in agreement with the valid argumnents of [col2rgb](https://www.rdocumentation.org/packages/grDevices/versions/3.6.2/topics/col2rgb). Colors can be  hexadecimal form, color name (as listed by [colors()](), or a positive integer i, meaning palatte()[i].
+`n_colors`: number of colors to be created in pallate from `colors` argument. Default is 20. Increase for large datasets. 
+`title`: A string of characters. Default is "Correlation Heatmap".
+`dend`: A string; "row", "column", "both", or "none". Default is "both".
+
+The `corrheatmap` function returns a correlation heatmap in a new Quartz window with a heatmap, title, color key and histogram, axis labels, and optional dendrograms. 
 
 First, the function creates the correlation values to plot. 
 ```{r, warning = F, message = F}
@@ -89,35 +99,36 @@ heatmap.2(c,
 ```
 
 You can specify if you want dendrograms on both the rows and the columns, just the columns, just the rows, or no dendrogram.
+
+Here is an example with dendrograms of both rows and columns.
 ```{r, warning = F, message = F}
 corrheatmap(mtcars, title="Correlations of Car Features", dend="both")
 ```
+<img src="corrheatmap_both.png" alt="corrheatmap functions output correlation heatmap with dendrogram of both rows and columns." width="400"/>
 
+Here is an example with a dendrogram of rows.
 ```{r, warning = F, message = F}
 corrheatmap(mtcars, title="Correlations of Car Features", dend="row")
 ```
+<img src="corrheatmap_row.png" alt="corrheatmap functions output correlation heatmap with dendrogram of rows." width="400"/>
 
+Here is an example with a dendrogram of columns.
 ```{r, warning = F, message = F}
 corrheatmap(mtcars, title="Correlations of Car Features", dend="col")
 ```
+<img src="corrheatmap_col.png" alt="corrheatmap functions output correlation heatmap with dendrogram of columns." width="400"/>
 
+Here is an example with no dendrograms.
 ```{r, warning = F, message = F}
 corrheatmap(mtcars, title="Correlations of Car Features", dend="none")
 ```
+<img src="corrheatmap_none.png" alt="corrheatmap functions output correlation heatmap with no dendrogram." width="400"/>
 
-Only one argument is needed, `data`, a matrix or a data frame. The data must be numeric, with all categorical variables dummy coded, in order for correlation values to be calculated. 
-
-Optional arguments are `colors`, `n_colors`, `title`, and `dend` for addition of a dendrogram to rows, columns, or both.
-`colors`: A vector of 3 colors. Defualt is magenta (#ff00ff), cyan (#00ffff), and yellow (#ffff00). The color argument uses the package [grDevices](https://www.rdocumentation.org/packages/grDevices/versions/3.6.2) [colorRampPallete](https://www.rdocumentation.org/packages/grDevices/versions/3.6.2/topics/colorRamp) function, and thus can take a vector of colors in agreement with the valid argumnents of [col2rgb](https://www.rdocumentation.org/packages/grDevices/versions/3.6.2/topics/col2rgb). Colors can be  hexadecimal form, color name (as listed by [colors()](), or a positive integer i, meaning palatte()[i].
-`n_colors`: number of colors to be created in pallate from `colors` argument. Default is 20. Increase for large datasets. 
-`title`: A string of characters. Default is "Correlation Heatmap".
-`dend`: A string; "row", "column", "both", or "none". Default is "both".
-
-The `corrheatmap` function returns a correlation heatmap in a new Quartz window with a heatmap, title, color key and histogram, axis labels, and optional dendrograms. 
 
 #### Notes and Considerations
 *Even with a relatively small dataset such as `mtcars`, when the `dend` argument is specified as "both", the window needed to print the plot is too large for RStudio. The function is set to open a new Quartz window when the function is run, so do not be surprised when nothing pops up in the Plots window in RStudio. The plot will appear in a separate window. This is done using the [grDevices](https://www.rdocumentation.org/packages/grDevices/versions/3.6.2) package's [dev.new](https://www.rdocumentation.org/packages/grDevices/versions/3.6.2/topics/dev) function. 
-*If you have already run the function and run it a second time, sometimes the window is updated to the new graph, but is not brought to the front of your screen. If this happens, look for a hidden window behind your other windows. 
+
+If you have already run the function and run it a second time, sometimes the window is updated to the new graph, but is not brought to the front of your screen. If this happens, look for a hidden window behind your other windows. 
 
 
 ## Cornerplots and Scatterplots
