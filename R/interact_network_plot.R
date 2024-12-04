@@ -26,10 +26,6 @@
 #'
 
 interact_network_plot <- function(data, initial_pt=1, target_pt=2, linkColour= "#666", nodeColour= "#69b3a2", opacity= 0.9, title="Network Graph", subtitle="Exploring Interactions and Relationships"){
-  library(igraph)
-  library(networkD3)
-  library(htmltools)
-  library(htmlwidgets)
 
   #col_number_to <- which(colnames(df) == target_pt)
   #col_number_from <- which(colnames(df) == initial_pt)

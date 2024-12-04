@@ -11,14 +11,12 @@
 #'@import grDevices
 #'@examples
 #'corrheatmap(mtcars, title="Correlations of Car Features", dend="row")
+#'corrheatmap(mtcars, title="Correlations of Car Features", dend="col")
 #'corrheatmap(mtcars, title="Correlations of Car Features", dend="both")
+#'corrheatmap(mtcars, title="Correlations of Car Features", dend="none")
 
 
 corrheatmap <- function(data, colors = c("#00ffff", "#ff00ff", "#ffff00"), n_colors=20, title = "Correlation Heatmap", dend="both") {
-  #load necessary libraries
-  library(corrplot)
-  library(gplots)
-  library(grDevices)
 
   #new environment because graph is too large for RStudio
   dev.new()
