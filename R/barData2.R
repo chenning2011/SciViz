@@ -1,4 +1,3 @@
-
 #' barData2
 #'
 #' DATASET_DESCRIPTION

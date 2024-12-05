@@ -1,4 +1,3 @@
-
 #' lineData1
 #'
 #' DATASET_DESCRIPTION

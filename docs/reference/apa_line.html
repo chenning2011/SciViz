@@ -111,7 +111,7 @@ of error bars to represent variability in the data.</p>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Example data for the line chart</span></span></span>
-<span class="r-in"><span><span class="va">example_data1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span><span class="va">lineData1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>  Time <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">3</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  Value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">12</span>, <span class="fl">15</span>, <span class="fl">14</span>, <span class="fl">18</span>, <span class="fl">8</span>, <span class="fl">9</span>, <span class="fl">11</span>, <span class="fl">13</span>, <span class="fl">14</span>, <span class="fl">20</span>, <span class="fl">22</span>, <span class="fl">21</span>, <span class="fl">23</span>, <span class="fl">24</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  Group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Group 1"</span>, <span class="st">"Group 2"</span>, <span class="st">"Group 3"</span><span class="op">)</span>, each <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>,</span></span>
@@ -120,7 +120,7 @@ of error bars to represent variability in the data.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Create the line chart with error bars and boxed legend title</span></span></span>
 <span class="r-in"><span><span class="fu">apa_line</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  data <span class="op">=</span> <span class="va">example_data1</span>,</span></span>
+<span class="r-in"><span>  data <span class="op">=</span> <span class="va">lineData1</span>,</span></span>
 <span class="r-in"><span>  x_var <span class="op">=</span> <span class="st">"Time"</span>,</span></span>
 <span class="r-in"><span>  y_var <span class="op">=</span> <span class="st">"Value"</span>,</span></span>
 <span class="r-in"><span>  group_var <span class="op">=</span> <span class="st">"Group"</span>,</span></span>
@@ -132,35 +132,6 @@ of error bars to represent variability in the data.</p>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>package 'ggplot2' was built under R version 4.4.2</span>
 <span class="r-plt img"><img src="apa_line-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Sample data for monthly sales</span></span></span>
-<span class="r-in"><span><span class="va">sales_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>  Month <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">12</span>, <span class="fl">2</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  Sales <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">200</span>, <span class="fl">250</span>, <span class="fl">300</span>, <span class="fl">350</span>, <span class="fl">400</span>, <span class="fl">450</span>, <span class="fl">500</span>, <span class="fl">480</span>, <span class="fl">450</span>, <span class="fl">400</span>, <span class="fl">380</span>, <span class="fl">350</span>,</span></span>
-<span class="r-in"><span>            <span class="fl">220</span>, <span class="fl">230</span>, <span class="fl">280</span>, <span class="fl">320</span>, <span class="fl">350</span>, <span class="fl">370</span>, <span class="fl">400</span>, <span class="fl">420</span>, <span class="fl">400</span>, <span class="fl">390</span>, <span class="fl">360</span>, <span class="fl">340</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  Store <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Store X"</span>, <span class="st">"Store Y"</span><span class="op">)</span>, each <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  Error <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">15</span>, <span class="fl">20</span>, <span class="fl">25</span>, <span class="fl">30</span>, <span class="fl">20</span>, <span class="fl">15</span>, <span class="fl">10</span>, <span class="fl">5</span>, <span class="fl">10</span>, <span class="fl">15</span>, <span class="fl">20</span>,</span></span>
-<span class="r-in"><span>            <span class="fl">10</span>, <span class="fl">10</span>, <span class="fl">15</span>, <span class="fl">20</span>, <span class="fl">25</span>, <span class="fl">15</span>, <span class="fl">10</span>, <span class="fl">5</span>, <span class="fl">10</span>, <span class="fl">15</span>, <span class="fl">20</span>, <span class="fl">15</span><span class="op">)</span>  <span class="co"># Example error values</span></span></span>
-<span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Create the line chart for monthly sales</span></span></span>
-<span class="r-in"><span><span class="fu">apa_line</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  data <span class="op">=</span> <span class="va">sales_data</span>,</span></span>
-<span class="r-in"><span>  x_var <span class="op">=</span> <span class="st">"Month"</span>,</span></span>
-<span class="r-in"><span>  y_var <span class="op">=</span> <span class="st">"Sales"</span>,</span></span>
-<span class="r-in"><span>  group_var <span class="op">=</span> <span class="st">"Store"</span>,</span></span>
-<span class="r-in"><span>  error_var <span class="op">=</span> <span class="st">"Error"</span>,</span></span>
-<span class="r-in"><span>  title <span class="op">=</span> <span class="st">"Monthly Sales Comparison"</span>,</span></span>
-<span class="r-in"><span>  subtitle <span class="op">=</span> <span class="st">"Sales Trends for Store X and Store Y"</span>,</span></span>
-<span class="r-in"><span>  x_label <span class="op">=</span> <span class="st">"Month"</span>,</span></span>
-<span class="r-in"><span>  y_label <span class="op">=</span> <span class="st">"Sales ($)"</span>,</span></span>
-<span class="r-in"><span>  legend_title <span class="op">=</span> <span class="st">"Store"</span>  <span class="co"># Adding legend title</span></span></span>
-<span class="r-in"><span><span class="op">)</span> <span class="op">+</span></span></span>
-<span class="r-in"><span>  <span class="fu">scale_x_continuous</span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">12</span>, by <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>                     labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">12</span>, by <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span></span>
-<span class="r-in"><span>  <span class="fu">theme</span><span class="op">(</span>axis.ticks.x <span class="op">=</span> <span class="fu">element_line</span><span class="op">(</span>color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="apa_line-2.png" alt="" width="700" height="433"></span>
-<span class="r-plt img"><img src="apa_line-3.png" alt="" width="700" height="433"></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

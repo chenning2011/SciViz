@@ -26,6 +26,7 @@ library(SciViz)
 The apa_line() function is designed to create a line chart that adheres to APA 7th edition style guidelines, using ggplot2 for data visualization. It includes options for adding error bars to represent variability in the data, along with customizable titles, labels, and colors, making it ideal for producing professional and publication-ready line charts in academic contexts.
 
 ```{r}
+data("lineData1")
 apa_line(
    data = lineData1,
    x_var = "Time",

@@ -50,7 +50,7 @@ of error bars to represent variability in the data.
 }
 \examples{
 # Example data for the line chart
-example_data1 <- data.frame(
+lineData1 <- data.frame(
   Time = rep(1:5, 3),
   Value = c(10, 12, 15, 14, 18, 8, 9, 11, 13, 14, 20, 22, 21, 23, 24),
   Group = rep(c("Group 1", "Group 2", "Group 3"), each = 5),
@@ -59,7 +59,7 @@ example_data1 <- data.frame(
 
 # Create the line chart with error bars and boxed legend title
 apa_line(
-  data = example_data1,
+  data = lineData1,
   x_var = "Time",
   y_var = "Value",
   group_var = "Group",
@@ -69,31 +69,4 @@ apa_line(
   x_label = "Time (Units)",
   y_label = "Values"
 )
-
-# Sample data for monthly sales
-sales_data <- data.frame(
-  Month = rep(1:12, 2),
-  Sales = c(200, 250, 300, 350, 400, 450, 500, 480, 450, 400, 380, 350,
-            220, 230, 280, 320, 350, 370, 400, 420, 400, 390, 360, 340),
-  Store = rep(c("Store X", "Store Y"), each = 12),
-  Error = c(10, 15, 20, 25, 30, 20, 15, 10, 5, 10, 15, 20,
-            10, 10, 15, 20, 25, 15, 10, 5, 10, 15, 20, 15)  # Example error values
-)
-
-# Create the line chart for monthly sales
-apa_line(
-  data = sales_data,
-  x_var = "Month",
-  y_var = "Sales",
-  group_var = "Store",
-  error_var = "Error",
-  title = "Monthly Sales Comparison",
-  subtitle = "Sales Trends for Store X and Store Y",
-  x_label = "Month",
-  y_label = "Sales ($)",
-  legend_title = "Store"  # Adding legend title
-) +
-  scale_x_continuous(breaks = seq(1, 12, by = 1),
-                     labels = seq(1, 12, by = 1)) +
-  theme(axis.ticks.x = element_line(color = "black"))
 }
