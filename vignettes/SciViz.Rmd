@@ -64,15 +64,6 @@ apa_bar(
 This example visualizes depression scores over time for two treatment groups (Control vs. Treatment), including error bars to represent the variability in the data. The bar colors differentiate the groups, and the chart includes a clear title, subtitle, and axis labels, making it suitable for a publication.
 
 Example 2: Imbalanced Sample (Exercise Duration)
-```{r}
-# Example 2: Imbalanced Scenario
-barData2 <- data.frame(
-  Activity = rep(c("Running", "Swimming", "Cycling"), each = 4),
-  Session_Type = rep(c("Weekday", "Weekend"), times = 6),
-  Mean_Duration = c(30, 40, 25, 35, 45, 20, 50, 30, 55, 25, 60, 40),
-  Error_Value = c(5, 7, 4, 6, 5, 3, 6, 4, 8, 5, 7, 3)
-)
-```
 
 ```{r}
 apa_bar(
@@ -94,40 +85,110 @@ This example uses an imbalanced dataset to illustrate that the apa_bar() functio
 A more detailed breakdown: 
 The dataset includes three activities: Running, Swimming, and Cycling. Each activity has four corresponding rows, resulting in a total of 12 rows in the dataset. The Session_Type variable, which indicates whether the session occurred on a Weekday or Weekend, repeats six times for each activity. However, this creates an imbalance in the representation of sessions across the different activities. Specifically, while there are six Weekend sessions for each activity type, there are only four Weekday sessions for each activity type. This discrepancy leads to an unequal distribution of sessions across the activity types. As a result, this imbalance between activities means that the bar chart will not represent the activities equally. In particular, the number of sessions for each activity type differs, which could lead to misleading visualizations. This imbalance is a key factor that might make the bar chart less effective for this specific scenario, as it may not accurately reflect the true distribution of sessions across activities.
 
+
+
 ## Network Plots and Heatmaps
 
 ### Network Plot
 
-Network plots are ..... Network plots use matrices containing points with directionality. This means for each (x,y) pair, there is an "inital" point and a "target" point. They are often used for ....
+Network plots are ..... Network plots use matrices containing points with directionality. This means for each (x,y) pair, there is an "inital" point and a "target" point. They are often used for ..........
 
-Network plots are used in neuroscience in a variety of ways, corresponding with a variety of different ways of analyzing the data. In neuroscience, the most common types of matrices used in network plots for neuroscience research are [adjacency](https://www.sciencedirect.com/science/article/pii/B9780124079083000030), [degree]() and [Laplacian matrices](https://www.frontiersin.org/journals/computational-neuroscience/articles/10.3389/fncom.2013.00189/full). Adjacency matrices are used in neuroscience to represent the pattern of connectivity between nodes in the brain. Degree matrices are used to describe the number of nodes connected to each node in a network. Lapacian matrices are used in neuroscience to study neural networks and brain connectivity.
+Network plots are used in neuroscience in a variety of ways, corresponding with a variety of different ways of analyzing the data. In neuroscience, there are numerous types of matrices used in network plots for neuroscience research, but some common ones are [adjacency](https://www.sciencedirect.com/science/article/pii/B9780124079083000030) and [Laplacian matrices](https://www.frontiersin.org/journals/computational-neuroscience/articles/10.3389/fncom.2013.00189/full). Adjacency matrices are used in neuroscience to represent the pattern of connectivity between nodes in the brain. Degree matrices are used to describe the number of nodes connected to each node in a network. Lapacian matrices are used in neuroscience to study neural networks and brain connectivity. 
 
-Along with different types of matrices, there are also many different ways to visualize the corresponding data.
+<img src="network_examples.jpg" alt="Network visualized as a regular network, small-world network, and random network." width="450"/> 
 
-<img src="network_examples.jpg" alt="Network visualized as a regular network, small-world network, and random network." width="300"/> This image shows a network visualized as a regular network, small-world network, and random network.[Source](https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613%2817%2930221-8)
+
+This image shows a network visualized as a regular network, small-world network, and random network.[Source](https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613%2817%2930221-8)
 
 <img src="schizophrenia_network_ex.jpg" alt="Network plot depicting differences in brain connectivity in control vs schizophrenia patients" width="300"/>
 
 This graph shows an example of a network plot depicting differences in brain connectivity in control vs schizophrenia patients. [Source](https://www.nature.com/articles/nrn2575)
 
+Along with different types of matrices, there are also many different ways to visualize the corresponding data. Lapacian matrices are complex and graphing them is out of the scope of this function. For resources on graphing lapacian matrices check out the [iGraph](https://rdrr.io/cran/igraph/) package and its [lapacian_matrix](https://rdrr.io/cran/igraph/man/laplacian_matrix.html) function. The iGraph documentation aslo has information on the [structural properties of graphs](https://igraph.org/c/html/latest/igraph-Structural.html#igraph_get_laplacian) and [degree and degree distribution of vertices](https://igraph.org/r/html/1.2.3/degree.html). For graphing adjacency matrices for your specific needs, check out the [iGraph](https://rdrr.io/cran/igraph/) package's [graph_from_adjacency_matrix](https://www.rdocumentation.org/packages/igraph/versions/1.3.5/topics/graph_from_adjacency_matrix) function. 
+
+The `interact_network_plot` function is designed to allow researchers to perform exploratory data analysis of data in edge list format. This will allow them to determine what the most efficient way of analyzing and manipulating their data. The `interact_network_plot` uses R packages [iGraph](https://rdrr.io/cran/igraph/) and [networkD3](https://christophergandrud.github.io/networkD3/).
+
 #### Arguments
+Only one argument is necessary, `data`, a matrix or a data frame of edge list format. In congruence with the networkD3 package, it should be of the form 
+`initial_pt`: The column NUMBER of initial point variable. Default is 1 
+
+`target_pt`: The column NUMBER of target point variable. Default is 2
+
+`linkDistance`: The numeric distance between the links in pixels. Default is 10.
+
+`linkColour`: A character string specifying the colour you want the link lines to be. Multiple formats supported (e.g. hexadecimal). Default is "#666".
+
+`nodeColour`:	A character string specifying the colour you want the node circles to be. Multiple formats supported (e.g. hexadecimal). Default is "#69b3a2". 
+
+`opacity`: Numeric value of the proportion opaque you would like the graph elements to be. Default is 0.9
+
+`zoom`: A logical value to enable (TRUE) or disable (FALSE) zooming. Default is TRUE
+
+`title`: A character string: title for graph. Default is "Network Graph".
+
+`subtitle`: A character string: subtitle for graph. Smaller, lighter text than title. Default is "Exploring Interactions and Relationships".
+
 
 #### Result
+An interactive simple network graph with title and subtitle.
+
+If you want to save the graph by itself as a stand alone html file, you can run the following code.
+```{r}
+library(magrittr)
+
+simpleNetwork(network_data_test) %>%
+saveNetwork(file = 'Net1.html')
+```
 
 #### How to use the **interact_network_plot** function
 
-Because the nuance of data structure and analyses that come with neuroscience data, this package is designed to allow researchers to explore the structure of their data. This exploratory analysis could yield information for the most efficient and accurate way to statistically analayze and visualize the specific data structure of the current project. It is not designed to make publication-ready graphs. 
+Because the nuance of data structure and analyses that come with neuroscience data, this package is designed to allow researchers to explore the structure of their data. This exploratory analysis could yield information for the most efficient and accurate way to statistically analyze and visualize the specific data structure of the current project. It is not designed to make publication-ready graphs. 
 
 more info on function itself....
 might make different matrices and want to see difference between them-- adding titles to simple network needs html::tools which is made simple and easy by this function
 
-make function able to do simple and complex networks?
 
-Example dataset description and explanation here ...
+An example dataset has been provided in this package to explore what the `interact_network_plot` function can do. The dataset, `network_data_test` includes ......
+
+#### How the **interact_network_plot** function works
+First, the function creates the interactive network plot using the [simpleNetwork](https://christophergandrud.github.io/networkD3/#simple) function from the [networkD3](https://christophergandrud.github.io/networkD3/) package. 
+```{r}
+#create network graph
+p <- simpleNetwork(network_data_test,
+                    Source = 1,                 # column number of source
+                    Target = 2,                 # column number of target
+                    linkDistance = 10,          # distance between node. Increase this value to have more space between nodes
+                    charge = -900,                # numeric value indicating either the strength of the node repulsion (negative value) or attraction (positive value)
+                    fontSize = 14,               # size of the node names
+                    fontFamily = "serif",       # font og node names
+                    linkColour = "#666",        # colour of edges, MUST be a common colour for the whole graph
+                    nodeColour = "#69b3a2",     # colour of nodes, MUST be a common colour for the whole graph
+                    opacity = .9,              # opacity of nodes. 0=transparent. 1=no transparency
+                    zoom = TRUE                    # Can you zoom on the figure?
+
+  )
+```
+
+Finally, it adds the title and subtitle using the [htmltools](https://rstudio.github.io/htmltools/) package. 
+```{r}
+htmlwidgets::prependContent(p,
+                            tags$div(
+                              htmltools::tags$h3("Title",
+                                      style = "text-align: center; font-family: serif; color: #333;"),
+                              htmltools::tags$h4("Subtitle",
+                                      style = "text-align: center; font-family: serif; color: #666;")
+                            ))
+```
+
 
 #### Example usage of **interact_network_plot**
 ```{r, warning = F, message = F}
+interact_network_plot(network_data_test, initial_pt = 1, target_pt = 2)
+```
 
+
+```{r, warning = F, message = F}
+interact_network_plot(network_data_test, initial_pt = 3, target_pt = 4)
 ```
 
 #### Notes and Considerations

@@ -1,6 +1,9 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>https://github.com/chenning2011/SciViz/404.html</loc></url>
+<url><loc>https://github.com/chenning2011/SciViz/articles/Astronomy.html</loc></url>
 <url><loc>https://github.com/chenning2011/SciViz/articles/index.html</loc></url>
+<url><loc>https://github.com/chenning2011/SciViz/articles/Neuroscience.html</loc></url>
+<url><loc>https://github.com/chenning2011/SciViz/articles/Psychology.html</loc></url>
 <url><loc>https://github.com/chenning2011/SciViz/articles/SciViz.html</loc></url>
 <url><loc>https://github.com/chenning2011/SciViz/authors.html</loc></url>
 <url><loc>https://github.com/chenning2011/SciViz/index.html</loc></url>
@@ -10,14 +13,10 @@
 <url><loc>https://github.com/chenning2011/SciViz/reference/apa_line.html</loc></url>
 <url><loc>https://github.com/chenning2011/SciViz/reference/astroCornerplot.html</loc></url>
 <url><loc>https://github.com/chenning2011/SciViz/reference/astroScatter.html</loc></url>
-<url><loc>https://github.com/chenning2011/SciViz/reference/barData1.html</loc></url>
-<url><loc>https://github.com/chenning2011/SciViz/reference/barData2.html</loc></url>
 <url><loc>https://github.com/chenning2011/SciViz/reference/cornerplot.html</loc></url>
 <url><loc>https://github.com/chenning2011/SciViz/reference/corrheatmap.html</loc></url>
 <url><loc>https://github.com/chenning2011/SciViz/reference/index.html</loc></url>
 <url><loc>https://github.com/chenning2011/SciViz/reference/interact_network_plot.html</loc></url>
-<url><loc>https://github.com/chenning2011/SciViz/reference/lineData1.html</loc></url>
-<url><loc>https://github.com/chenning2011/SciViz/reference/network_data_test.html</loc></url>
 <url><loc>https://github.com/chenning2011/SciViz/reference/scatterplot.html</loc></url>
 <url><loc>https://github.com/chenning2011/SciViz/reference/SciViz-package.html</loc></url>
 <url><loc>https://github.com/chenning2011/SciViz/reference/starcatalog.html</loc></url>
