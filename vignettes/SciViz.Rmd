@@ -139,7 +139,7 @@ Example dataset description and explanation here ...
 
 
 
-### Heatmap
+### Heatmaps
 
 Heatmaps use color to graphically represent relationships between many variables or observations. They originated in the 19th century, where scientists would manually draw each "pixel" in grayscale.
 
