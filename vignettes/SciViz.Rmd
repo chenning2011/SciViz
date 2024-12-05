@@ -76,7 +76,8 @@ apa_bar(
    subtitle = "Comparison of Weekday and Weekend Sessions",
    x_label = "Activity Type",
    y_label = "Mean Duration (minutes)",
-   bar_color = c("black", "darkgrey")  # Different custom colors for groups
+   bar_color = c("black", "darkgrey"),  # Different custom colors for groups
+   legend_title = "Type"
  )
 ```
 
