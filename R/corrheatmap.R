@@ -1,7 +1,7 @@
 #'@title Correlation Heat Map with or Without Dendrogram
-#'@description Calculates Pearson Correlation from a Matrix and plots resulting correlation values on a heatmap with color key and histogram.
+#'@description Calculates Pearson Correlation from a Matrix and plots resulting correlation values on a heatmap with color key, histogram, and optional dendrograms.
 #'@param data a matrix or a data frame
-#'@param color (optional) a vector of three colors. Default is blue, white, and red.
+#'@param color (optional) a vector of three colors. Default is cyan, magenta, and yellow.
 #'@param title (optional) a character vector. Default is "Correlation Heatmap"
 #'@param dend (optional) a string: "both","row","column","none". Default is both.
 #'@returns A heatmap graph in a new quartz window.
