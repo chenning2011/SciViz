@@ -93,24 +93,31 @@ This example uses an imbalanced dataset to illustrate that the apa_bar() functio
 A more detailed breakdown: 
 The dataset includes three activities: Running, Swimming, and Cycling. Each activity has four corresponding rows, resulting in a total of 12 rows in the dataset. The Session_Type variable, which indicates whether the session occurred on a Weekday or Weekend, repeats six times for each activity. However, this creates an imbalance in the representation of sessions across the different activities. Specifically, while there are six Weekend sessions for each activity type, there are only four Weekday sessions for each activity type. This discrepancy leads to an unequal distribution of sessions across the activity types. As a result, this imbalance between activities means that the bar chart will not represent the activities equally. In particular, the number of sessions for each activity type differs, which could lead to misleading visualizations. This imbalance is a key factor that might make the bar chart less effective for this specific scenario, as it may not accurately reflect the true distribution of sessions across activities.
 
+
+
 ## Network Plots and Heatmaps
 
 ### Network Plot
 
-Network plots are ..... Network plots use matrices containing points with directionality. This means for each (x,y) pair, there is an "inital" point and a "target" point. They are often used for ....
+Network plots are ..... Network plots use matrices containing points with directionality. This means for each (x,y) pair, there is an "inital" point and a "target" point. They are often used for ..........
 
-Network plots are used in neuroscience in a variety of ways, corresponding with a variety of different ways of analyzing the data. In neuroscience, the most common types of matrices used in network plots for neuroscience research are [adjacency](https://www.sciencedirect.com/science/article/pii/B9780124079083000030), [degree]() and [Laplacian matrices](https://www.frontiersin.org/journals/computational-neuroscience/articles/10.3389/fncom.2013.00189/full). Adjacency matrices are used in neuroscience to represent the pattern of connectivity between nodes in the brain. Degree matrices are used to describe the number of nodes connected to each node in a network. Lapacian matrices are used in neuroscience to study neural networks and brain connectivity.
+Network plots are used in neuroscience in a variety of ways, corresponding with a variety of different ways of analyzing the data. In neuroscience, there are numerous types of matrices used in network plots for neuroscience research, but some common ones are [adjacency](https://www.sciencedirect.com/science/article/pii/B9780124079083000030) and [Laplacian matrices](https://www.frontiersin.org/journals/computational-neuroscience/articles/10.3389/fncom.2013.00189/full). Adjacency matrices are used in neuroscience to represent the pattern of connectivity between nodes in the brain. Degree matrices are used to describe the number of nodes connected to each node in a network. Lapacian matrices are used in neuroscience to study neural networks and brain connectivity. 
 
-Along with different types of matrices, there are also many different ways to visualize the corresponding data.
+<img src="network_examples.jpg" alt="Network visualized as a regular network, small-world network, and random network." width="300"/> 
 
-<img src="network_examples.jpg" alt="Network visualized as a regular network, small-world network, and random network." width="300"/> This image shows a network visualized as a regular network, small-world network, and random network.[Source](https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613%2817%2930221-8)
+This image shows a network visualized as a regular network, small-world network, and random network.[Source](https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613%2817%2930221-8)
 
 <img src="schizophrenia_network_ex.jpg" alt="Network plot depicting differences in brain connectivity in control vs schizophrenia patients" width="300"/>
 
 This graph shows an example of a network plot depicting differences in brain connectivity in control vs schizophrenia patients. [Source](https://www.nature.com/articles/nrn2575)
 
-#### Arguments
+Along with different types of matrices, there are also many different ways to visualize the corresponding data. Lapacian matrices are complex and graphing them is out of the scope of this function. For resources on graphing lapacian matrices check out the [iGraph](https://rdrr.io/cran/igraph/) package and its [lapacian_matrix](https://rdrr.io/cran/igraph/man/laplacian_matrix.html) function. The iGraph documentatin aslo has information on the [structural properties of graphs](https://igraph.org/c/html/latest/igraph-Structural.html#igraph_get_laplacian) and [degree and degree distribution of vertices](https://igraph.org/r/html/1.2.3/degree.html).
 
+The `interact_network_plot` function uses the [iGraph](https://rdrr.io/cran/igraph/) package's [graph_from_adjacency_matrix](https://www.rdocumentation.org/packages/igraph/versions/1.3.5/topics/graph_from_adjacency_matrix) function to graph adjacency matrices. Alternatively, the `interact_network_plot` function also has an option to create an interactive .................
+
+
+#### Arguments
+Only one argument is necessary, `data`, which can be of two forms, depending on the method used. 
 #### Result
 
 #### How to use the **interact_network_plot** function
@@ -123,6 +130,8 @@ might make different matrices and want to see difference between them-- adding t
 make function able to do simple and complex networks?
 
 Example dataset description and explanation here ...
+#### How the **interact_network_plot** function works
+
 
 #### Example usage of **interact_network_plot**
 ```{r, warning = F, message = F}
