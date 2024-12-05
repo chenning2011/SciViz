@@ -95,7 +95,8 @@ Network plots are ..... Network plots use matrices containing points with direct
 
 Network plots are used in neuroscience in a variety of ways, corresponding with a variety of different ways of analyzing the data. In neuroscience, there are numerous types of matrices used in network plots for neuroscience research, but some common ones are [adjacency](https://www.sciencedirect.com/science/article/pii/B9780124079083000030) and [Laplacian matrices](https://www.frontiersin.org/journals/computational-neuroscience/articles/10.3389/fncom.2013.00189/full). Adjacency matrices are used in neuroscience to represent the pattern of connectivity between nodes in the brain. Degree matrices are used to describe the number of nodes connected to each node in a network. Lapacian matrices are used in neuroscience to study neural networks and brain connectivity. 
 
-<img src="network_examples.jpg" alt="Network visualized as a regular network, small-world network, and random network." width="300"/> 
+<img src="network_examples.jpg" alt="Network visualized as a regular network, small-world network, and random network." width="450"/> 
+
 
 This image shows a network visualized as a regular network, small-world network, and random network.[Source](https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613%2817%2930221-8)
 
