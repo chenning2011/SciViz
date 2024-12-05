@@ -1,6 +1,6 @@
 #' BarData1
 #'
-#' DATASET_DESCRIPTION
+#' depression scores over time for two treatment groups (Control vs. Treatment)
 #'
 #' @format A data frame with 10 rows and 4 variables:
 #' \describe{

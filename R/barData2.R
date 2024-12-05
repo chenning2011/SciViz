@@ -1,6 +1,6 @@
 #' barData2
 #'
-#' DATASET_DESCRIPTION
+#' dataset includes three activities: Running, Swimming, and Cycling. Each activity has four corresponding rows, resulting in a total of 12 rows in the dataset. The Session_Type variable, which indicates whether the session occurred on a Weekday or Weekend, repeats six times for each activity. However, this creates an imbalance in the representation of sessions across the different activities. Specifically, while there are six Weekend sessions for each activity type, there are only four Weekday sessions for each activity type. This discrepancy leads to an unequal distribution of sessions across the activity types.
 #'
 #' @format A data frame with 12 rows and 4 variables:
 #' \describe{
