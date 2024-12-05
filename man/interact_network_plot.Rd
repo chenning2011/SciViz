@@ -2,7 +2,7 @@
 % Please edit documentation in R/interact_network_plot.R
 \name{interact_network_plot}
 \alias{interact_network_plot}
-\title{Interactive Network Plot}
+\title{Network Plot for Interaction or Adjacency Matrix}
 \usage{
 interact_network_plot(
   data,
@@ -12,6 +12,7 @@ interact_network_plot(
   linkColour = "#666",
   nodeColour = "#69b3a2",
   opacity = 0.9,
+  zoom = TRUE,
   title = "Network Graph",
   subtitle = "Exploring Interactions and Relationships"
 )
@@ -39,7 +40,7 @@ interact_network_plot(
 an interactive network graph
 }
 \description{
-Create interactive network plot for a data frame of edge list format. Designed for exploratory data analysis.
+Create interactive network plot for a data frame of edge list format. Designed for exploratory data analysis or visualization of adjacency matrices.
 }
 \examples{
 interact_network_plot(network_data_test)

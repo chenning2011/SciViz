@@ -17,6 +17,6 @@ A data frame with 15 rows and 4 variables:
 lineData1
 }
 \description{
-DATASET_DESCRIPTION
+This dataset contains time-series values across three groups, with associated error values for each time point, enabling the visualization of trends and variability over time.
 }
 \keyword{datasets}

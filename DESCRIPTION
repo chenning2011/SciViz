@@ -19,6 +19,7 @@ Imports:
     htmltools,
     htmlwidgets,
     igraph,
+    magrittr,
     networkD3,
     patchwork,
     rlang

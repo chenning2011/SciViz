@@ -134,8 +134,9 @@ An interactive simple network graph with title and subtitle.
 
 If you want to save the graph by itself as a stand alone html file, you can run the following code.
 ```{r}
+library(dplyr)
 library(magrittr)
-
+library(networkD3)
 simpleNetwork(network_data_test) %>%
 saveNetwork(file = 'Net1.html')
 ```
@@ -172,7 +173,7 @@ p <- simpleNetwork(network_data_test,
 Finally, it adds the title and subtitle using the [htmltools](https://rstudio.github.io/htmltools/) package. 
 ```{r}
 htmlwidgets::prependContent(p,
-                            tags$div(
+                            htmltools::tags$div(
                               htmltools::tags$h3("Title",
                                       style = "text-align: center; font-family: serif; color: #333;"),
                               htmltools::tags$h4("Subtitle",
