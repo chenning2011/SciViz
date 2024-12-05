@@ -17,6 +17,10 @@ reference:
     desc: ~
     contents:
       - '`starcatalog`'
+      - '`lineData1`'
+      - '`barData1`'
+      - '`barData2`'
+      - '`network_data_test`'
 navbar:
   left:
     - text: Getting Started

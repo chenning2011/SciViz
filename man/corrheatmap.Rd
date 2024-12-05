@@ -19,15 +19,17 @@ corrheatmap(
 
 \item{dend}{(optional) a string: "both","row","column","none". Default is both.}
 
-\item{color}{(optional) a vector of three colors. Default is blue, white, and red.}
+\item{color}{(optional) a vector of three colors. Default is cyan, magenta, and yellow.}
 }
 \value{
 A heatmap graph in a new quartz window.
 }
 \description{
-Calculates Pearson Correlation from a Matrix and plots resulting correlation values on a heatmap with color key and histogram.
+Calculates Pearson Correlation from a Matrix and plots resulting correlation values on a heatmap with color key, histogram, and optional dendrograms.
 }
 \examples{
 corrheatmap(mtcars, title="Correlations of Car Features", dend="row")
+corrheatmap(mtcars, title="Correlations of Car Features", dend="col")
 corrheatmap(mtcars, title="Correlations of Car Features", dend="both")
+corrheatmap(mtcars, title="Correlations of Car Features", dend="none")
 }
