@@ -13,36 +13,14 @@
 #' @param y_label A string for the y-axis label.
 #' @param legend_title A string for the legend title.
 #' @param tick_labels A vector of custom labels for x-axis ticks (optional).
-#' @param bar_color A vector specifying colors for the bars (default is "skyblue").
+#' @param bar_color A vector specifying colors for the bars (default is "black").
 #' @param save_as A string specifying the file name to save the plot (optional).
 #' @returns Returns a ggplot2 graph.
 #' @export
 #' @import ggplot2
 #' @examples
-#' # Example 1: Sample data for average daily steps
-#' example_data1 <- data.frame(
-#'   Gender = rep(c("Male", "Female"), each = 7),
-#'   Day = rep(c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"), times = 2),
-#'   Average_Steps = c(8000, 8500, 7800, 9000, 9500, 7000, 7500, 6000, 6500, 6200, 5900, 5800, 7000, 7200),
-#'   Error = c(300, 400, 250, 350, 500, 200, 300, 250, 300, 200, 150, 250, 300, 200)  # Example error values
-#' )
-#'
-#' # Create the grouped bar graph with error bars
-#' apa_bar(
-#'   data = example_data1,
-#'   x_var = "Day",
-#'   y_var = "Average_Steps",
-#'   group_var = "Gender",
-#'   error_var = "Error",
-#'   title = "Average Daily Steps by Gender",
-#'  subtitle = "Comparison of Daily Steps Taken",
-#'   x_label = "Day of the Week",
-#'   y_label = "Average Steps",
-#'   bar_color = c("pink", "blue"),  # Blue for Male and Pink for Female
-#'   legend_title = "Gender"  # Adding legend title
-#' )
-#' # Example 2: Sample data for depression scores by treatment groups
-#' example_data2 <- data.frame(
+#' # Example 1: Sample data for depression scores by treatment groups
+#' barData1 <- data.frame(
 #'   Group = rep(c("Control", "Treatment"), each = 5),
 #'   Time = rep(c("Day 1", "Day 2", "Day 3", "Day 4", "Day 5"), times = 2),
 #'   Depression_Scores = c(20, 22, 19, 21, 23, 25, 27, 26, 28, 30),
@@ -51,7 +29,7 @@
 #'
 #' # Create the grouped bar graph with error bars, bold title, and italic subtitle
 #' apa_bar(
-#'   data = example_data2,
+#'   data = barData1,
 #'   x_var = "Time",
 #'   y_var = "Depression_Scores",
 #'   group_var = "Group",
@@ -60,12 +38,12 @@
 #'   subtitle = "Comparison Between Control and Treatment Groups",
 #'   x_label = "Days",
 #'   y_label = "Depression Scores",
-#'   bar_color = c("lightgreen", "lightcoral"),  # Custom colors for groups
+#'   bar_color = c("black", "darkgrey"),  # Custom colors for groups
 #'   legend_title = "Group"  # Adding legend title
 #' )
 #'
-#' ## Example 3: Imbalanced Scenario
-#' example_imbalanced <- data.frame(
+#' ## Example 2: Imbalanced Scenario
+#' barData2 <- data.frame(
 #'   Activity = rep(c("Running", "Swimming", "Cycling"), each = 4),
 #'   Session_Type = rep(c("Weekday", "Weekend"), times = 6),
 #'   Mean_Duration = c(30, 40, 25, 35, 45, 20, 50, 30, 55, 25, 60, 40),
@@ -74,7 +52,7 @@
 #'
 #' # Create the grouped bar graph with error bars
 #' apa_bar(
-#'   data = example_imbalanced,
+#'   data = barData2,
 #'   x_var = "Activity",
 #'   y_var = "Mean_Duration",
 #'   group_var = "Session_Type",
@@ -83,7 +61,7 @@
 #'   subtitle = "Comparison of Weekday and Weekend Sessions",
 #'   x_label = "Activity Type",
 #'   y_label = "Mean Duration (minutes)",
-#'   bar_color = c("skyblue", "salmon")  # Different custom colors for groups
+#'   bar_color = c("black", "darkgrey")  # Different custom colors for groups
 #' )
 #' # Note: This example illustrates an imbalanced design, which may result in misleading visual representations.
 
@@ -97,7 +75,7 @@ apa_bar <- function(data, x_var, y_var, group_var = NULL, facet_var = NULL,
                     y_label = "Y-axis Label",
                     legend_title = "Legend Title",
                     tick_labels = NULL,
-                    bar_color = "skyblue",  # Default color
+                    bar_color = "black",  # Default color
                     save_as = NULL) {
 
   # Create the base plot

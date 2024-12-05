@@ -4,6 +4,7 @@
 #'@param data a data frame of edge list format. This means each row should specify a link between 2 nodes. There should be two columns; one for the inital point, and a second target point.
 #'@param to column NUMBER of initial point variable. Default is 1
 #'@param from column NUMBER of target point variable. Default is 2
+#'@param linkDistance numeric distance between the links in pixels
 #'@param linkColour color of edges, MUST be a common color for the whole graph. default is #666
 #'@param nodeColour color of nodes, MUST be a common color for the whole graph. Default is #69b3a2
 #'@param opacity opacity of nodes. 0=transparent. 1=no transparency. Default is .9
@@ -25,7 +26,7 @@
 #'interact_network_plot(data_test, initial_pt = 3, target_pt = 4)
 #'
 
-interact_network_plot <- function(data, initial_pt=1, target_pt=2, linkColour= "#666", nodeColour= "#69b3a2", opacity= 0.9, title="Network Graph", subtitle="Exploring Interactions and Relationships"){
+interact_network_plot <- function(data, initial_pt=1, target_pt=2, linkDistance=10, linkColour= "#666", nodeColour= "#69b3a2", opacity= 0.9, title="Network Graph", subtitle="Exploring Interactions and Relationships"){
 
   #col_number_to <- which(colnames(df) == target_pt)
   #col_number_from <- which(colnames(df) == initial_pt)
@@ -36,7 +37,7 @@ interact_network_plot <- function(data, initial_pt=1, target_pt=2, linkColour= "
                      width="100px",
                      Source = initial_pt,                 # column number of source
                      Target = target_pt,                 # column number of target
-                     linkDistance = 10,          # distance between node. Increase this value to have more space between nodes
+                     linkDistance = linkDistance,          # distance between node. Increase this value to have more space between nodes
                      charge = -900,                # numeric value indicating either the strength of the node repulsion (negative value) or attraction (positive value)
                      fontSize = 14,               # size of the node names
                      fontFamily = "serif",       # font og node names
