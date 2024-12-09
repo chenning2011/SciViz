@@ -572,7 +572,9 @@ color</a> can be used to change the color of the histograms, and color
 palette options have been taken from the <a href="https://colorspace.r-forge.r-project.org/articles/ggplot2_color_scales.html#available-palettes" class="external-link">colorspace</a>
 package.</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/cornerplot.html">cornerplot</a></span><span class="op">(</span><span class="va">starcatalog</span>, varlist <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"vmag"</span>, <span class="st">"bv_color"</span><span class="op">)</span>, palette <span class="op">=</span> <span class="st">"Blues"</span>, fill<span class="op">=</span><span class="st">"dodgerblue3"</span>, contour <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/cornerplot.html">cornerplot</a></span><span class="op">(</span><span class="va">starcatalog</span>, varlist <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"vmag"</span>, <span class="st">"bv_color"</span><span class="op">)</span>, </span>
+<span>           palette <span class="op">=</span> <span class="st">"Blues"</span>, fill<span class="op">=</span><span class="st">"dodgerblue3"</span>, </span>
+<span>           contour <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="SciViz_files/figure-html/unnamed-chunk-18-1.png" width="700"></p>
 <p>Here, we have changed the graph so that both histograms have a blue
 fill/palette, only two of the variables are displayed, and the contour
@@ -609,14 +611,17 @@ investigate the variables in the dataset further, you can use a grouping
 or color variable to identify how this relationship is changed by
 addding a categorical variable into the mix.</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/scatterplot.html">scatterplot</a></span><span class="op">(</span><span class="va">starcatalog</span>, <span class="st">"vmag"</span>, <span class="st">"bv_color"</span>, color <span class="op">=</span> <span class="st">"multiple"</span>, palette <span class="op">=</span> <span class="st">"Viridis"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/scatterplot.html">scatterplot</a></span><span class="op">(</span><span class="va">starcatalog</span>, <span class="st">"vmag"</span>, <span class="st">"bv_color"</span>, </span>
+<span>            color <span class="op">=</span> <span class="st">"multiple"</span>, palette <span class="op">=</span> <span class="st">"Viridis"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="SciViz_files/figure-html/unnamed-chunk-21-1.png" width="700"></p>
 <p>Sometimes it can be hard to make out the different colors on this
 graph, so you can also facet the variable instead of changing the color
 of the points. Here is an example using the same variable as the graph
 above.</p>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/scatterplot.html">scatterplot</a></span><span class="op">(</span><span class="va">starcatalog</span>, <span class="st">"vmag"</span>, <span class="st">"bv_color"</span>, group <span class="op">=</span> <span class="st">"multiple"</span>, color <span class="op">=</span> <span class="st">"multiple"</span>, palette <span class="op">=</span> <span class="st">"Viridis"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/scatterplot.html">scatterplot</a></span><span class="op">(</span><span class="va">starcatalog</span>, <span class="st">"vmag"</span>, <span class="st">"bv_color"</span>, </span>
+<span>            group <span class="op">=</span> <span class="st">"multiple"</span>, </span>
+<span>            color <span class="op">=</span> <span class="st">"multiple"</span>, palette <span class="op">=</span> <span class="st">"Viridis"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="SciViz_files/figure-html/unnamed-chunk-22-1.png" width="700"></p>
 <p>Now we can see that it was hard to see the multiples of A, R, and I
 because there were very few stars with these multiples! You do not have
@@ -630,7 +635,9 @@ these parameters changes the graph, using the graph that we’ve been
 creating. The <code>color</code> parameter has been changed to blue4, to
 make the points easier to see against the white background.</p>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/scatterplot.html">scatterplot</a></span><span class="op">(</span><span class="va">starcatalog</span>, <span class="st">"vmag"</span>, <span class="st">"bv_color"</span>, group <span class="op">=</span> <span class="st">"multiple"</span>, color <span class="op">=</span> <span class="st">"blue4"</span>, palette <span class="op">=</span> <span class="st">"Viridis"</span>, size <span class="op">=</span> <span class="fl">0.2</span>, alpha <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/scatterplot.html">scatterplot</a></span><span class="op">(</span><span class="va">starcatalog</span>, <span class="st">"vmag"</span>, <span class="st">"bv_color"</span>, </span>
+<span>            group <span class="op">=</span> <span class="st">"multiple"</span>, color <span class="op">=</span> <span class="st">"blue4"</span>, </span>
+<span>            size <span class="op">=</span> <span class="fl">0.2</span>, alpha <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span></span></code></pre></div>
 <p><img src="SciViz_files/figure-html/unnamed-chunk-23-1.png" width="700"></p>
 <p>Here, the points are smaller but also less opaque, which makes each
 individual point easier to see. Each of these parameters can be

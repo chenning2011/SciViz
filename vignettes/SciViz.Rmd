@@ -355,7 +355,9 @@ This plotted all of the numeric variables in the dataset, `bv_color`, `parallax`
 There are many ways you can customize these plots to make them better suit your needs. For example, if you only want to examine the relationships between two of the variables in starcatalog, you can specify them. You can also remove the countor plot that sits on top of the cornerplot, and change the color of both kinds of histograms. Any [ggplot2 color](https://sape.inf.usi.ch/quick-reference/ggplot2/colour) can be used to change the color of the histograms, and color palette options have been taken from the [colorspace](https://colorspace.r-forge.r-project.org/articles/ggplot2_color_scales.html#available-palettes) package.
 
 ```{r}
-cornerplot(starcatalog, varlist = c("vmag", "bv_color"), palette = "Blues", fill="dodgerblue3", contour = FALSE)
+cornerplot(starcatalog, varlist = c("vmag", "bv_color"), 
+           palette = "Blues", fill="dodgerblue3", 
+           contour = FALSE)
 ```
 
 Here, we have changed the graph so that both histograms have a blue fill/palette, only two of the variables are displayed, and the contour has been removed.
@@ -379,13 +381,16 @@ scatterplot(starcatalog, x = "vmag", y = "bv_color")
 In this example, we can see where there are large concentrations of each variable, and the relationship between the two variables. To investigate the variables in the dataset further, you can use a grouping or color variable to identify how this relationship is changed by addding a categorical variable into the mix.
 
 ```{r}
-scatterplot(starcatalog, "vmag", "bv_color", color = "multiple", palette = "Viridis")
+scatterplot(starcatalog, "vmag", "bv_color", 
+            color = "multiple", palette = "Viridis")
 ```
 
 Sometimes it can be hard to make out the different colors on this graph, so you can also facet the variable instead of changing the color of the points. Here is an example using the same variable as the graph above.
 
 ```{r}
-scatterplot(starcatalog, "vmag", "bv_color", group = "multiple", color = "multiple", palette = "Viridis")
+scatterplot(starcatalog, "vmag", "bv_color", 
+            group = "multiple", 
+            color = "multiple", palette = "Viridis")
 ```
 
 Now we can see that it was hard to see the multiples of A, R, and I because there were very few stars with these multiples! You do not have to specify both group and color and the points will default to black if no color is specified.
@@ -393,7 +398,9 @@ Now we can see that it was hard to see the multiples of A, R, and I because ther
 Other customizable features of this graph include changing the `alpha` or the opacity of the points, and the `size` of these points. Both the `size` and the `alpha` default to 0.5. Here is an example of how changing these parameters changes the graph, using the graph that we've been creating. The `color` parameter has been changed to blue4, to make the points easier to see against the white background.
 
 ```{r}
-scatterplot(starcatalog, "vmag", "bv_color", group = "multiple", color = "blue4", palette = "Viridis", size = 0.2, alpha = 0.8)
+scatterplot(starcatalog, "vmag", "bv_color", 
+            group = "multiple", color = "blue4", 
+            size = 0.2, alpha = 0.8)
 ```
 
 Here, the points are smaller but also less opaque, which makes each individual point easier to see. Each of these parameters can be customized to your liking, until you have a graph that adequately displays all of the information you want to capture.
