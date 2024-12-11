@@ -15,8 +15,10 @@
 #'@import colorspace
 #'@examples
 #'scatterplot(starcatalog, "vmag", "bv_color")
-#'scatterplot(starcatalog, "vmag", "bv_color", color = "multiple", palette = "Terrain", size = 0.2, alpha = 0.7)
-#'scatterplot(starcatalog, "vmag", "bv_color", color = "mediumpurple", palette = "Terrain", size = 0.2, alpha = 0.7)
+#'scatterplot(starcatalog, "vmag", "bv_color",
+#'color = "multiple", palette = "Terrain", size = 0.2, alpha = 0.7)
+#'scatterplot(starcatalog, "vmag", "bv_color",
+#'color = "mediumpurple", palette = "Terrain", size = 0.2, alpha = 0.7)
 #'scatterplot(starcatalog, "vmag", "bv_color", group = "multiple")
 
 scatterplot <- function(data, x, y, size=0.5, alpha=0.5, color=NULL, group=NULL, palette="agSunset"){

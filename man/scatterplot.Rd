@@ -40,7 +40,9 @@ Create scatterplots for astronomy data, optimized for a large number of points
 }
 \examples{
 scatterplot(starcatalog, "vmag", "bv_color")
-scatterplot(starcatalog, "vmag", "bv_color", color = "multiple", palette = "Terrain", size = 0.2, alpha = 0.7)
-scatterplot(starcatalog, "vmag", "bv_color", color = "mediumpurple", palette = "Terrain", size = 0.2, alpha = 0.7)
+scatterplot(starcatalog, "vmag", "bv_color",
+color = "multiple", palette = "Terrain", size = 0.2, alpha = 0.7)
+scatterplot(starcatalog, "vmag", "bv_color",
+color = "mediumpurple", palette = "Terrain", size = 0.2, alpha = 0.7)
 scatterplot(starcatalog, "vmag", "bv_color", group = "multiple")
 }

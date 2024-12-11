@@ -16,8 +16,10 @@
 #'@import rlang
 #'@examples
 #'cornerplot(starcatalog)
-#'cornerplot(starcatalog, contour=FALSE, fill="mediumpurple", palette = "Purples", bins=40)
-#'cornerplot(starcatalog, varlist = c("vmag", "bv_color"), palette = "Blues", fill="dodgerblue3", bins = 50, contourBins = 3)
+#'cornerplot(starcatalog, contour=FALSE, fill="mediumpurple",
+#'palette = "Purples", bins=40)
+#'cornerplot(starcatalog, varlist = c("vmag", "bv_color"),
+#'palette = "Blues", fill="dodgerblue3", bins = 50, contourBins = 3)
 
 #option for page, true it's all together, false they're separate
 #make sure someone who isn't in this field can understand how the graph works

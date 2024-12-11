@@ -37,6 +37,8 @@ Create cornerplots for numeric data using an unlimited number of paired variable
 }
 \examples{
 cornerplot(starcatalog)
-cornerplot(starcatalog, contour=FALSE, fill="mediumpurple", palette = "Purples", bins=40)
-cornerplot(starcatalog, varlist = c("vmag", "bv_color"), palette = "Blues", fill="dodgerblue3", bins = 50, contourBins = 3)
+cornerplot(starcatalog, contour=FALSE, fill="mediumpurple",
+palette = "Purples", bins=40)
+cornerplot(starcatalog, varlist = c("vmag", "bv_color"),
+palette = "Blues", fill="dodgerblue3", bins = 50, contourBins = 3)
 }

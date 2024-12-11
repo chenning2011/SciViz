@@ -167,9 +167,17 @@ distribution of sessions across activities.</p>
 <div class="section level3">
 <h3 id="network-plot">Network Plot<a class="anchor" aria-label="anchor" href="#network-plot"></a>
 </h3>
-<p>Network plots are ….. Network plots use matrices containing points
-with directionality. This means for each (x,y) pair, there is an
-“inital” point and a “target” point. They are often used for ……….</p>
+<p><a href="https://www.data-to-viz.com/graph/network.html" class="external-link">Network
+plots</a> are a way to visualize the relationships between different
+entities, where each entity is depicted as a “node” and the connections
+between them are shown as “links” or “edges”. This means network graphs
+use matrices containing points either connected or not connected with
+each other. For each (x,y) pair, there is an “inital” point and a
+“target” point. These points can be of the format directed &amp;
+weighted, directed &amp; unweighted, undirected &amp; weighted, or
+undirected &amp; unweighted.They are used in many disciplines such as
+neuroscience, computer science, intelligence analysis, physics, biology,
+and more.</p>
 <p>Network plots are used in neuroscience in a variety of ways,
 corresponding with a variety of different ways of analyzing the data. In
 neuroscience, there are numerous types of matrices used in network plots
@@ -179,7 +187,9 @@ matrices</a>. Adjacency matrices are used in neuroscience to represent
 the pattern of connectivity between nodes in the brain. Degree matrices
 are used to describe the number of nodes connected to each node in a
 network. Lapacian matrices are used in neuroscience to study neural
-networks and brain connectivity.</p>
+networks and brain connectivity. Network graphs can be used in
+neuroscience to visualize relationships between individual neurons or
+groups of neurons.</p>
 <p><img src="network_examples.jpg" alt="Network visualized as a regular network, small-world network, and random network." width="450"></p>
 <p>This image shows a network visualized as a regular network,
 small-world network, and random network.<a href="https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613%2817%2930221-8" class="external-link">Source</a></p>
@@ -189,24 +199,30 @@ in brain connectivity in control vs schizophrenia patients. <a href="https://www
 <p>Along with different types of matrices, there are also many different
 ways to visualize the corresponding data. Lapacian matrices are complex
 and graphing them is out of the scope of this function. For resources on
-graphing lapacian matrices check out the <a href="https://rdrr.io/cran/igraph/" class="external-link">iGraph</a> package and its <a href="https://rdrr.io/cran/igraph/man/laplacian_matrix.html" class="external-link">lapacian_matrix</a>
-function. The iGraph documentation aslo has information on the <a href="https://igraph.org/c/html/latest/igraph-Structural.html#igraph_get_laplacian" class="external-link">structural
+graphing Lapacian matrices check out the <a href="https://rdrr.io/cran/igraph/" class="external-link">iGraph</a> package and its <a href="https://rdrr.io/cran/igraph/man/laplacian_matrix.html" class="external-link">Lapacian_matrix</a>
+function. The iGraph documentation also has information on the <a href="https://igraph.org/c/html/latest/igraph-Structural.html#igraph_get_laplacian" class="external-link">structural
 properties of graphs</a> and <a href="https://igraph.org/r/html/1.2.3/degree.html" class="external-link">degree and degree
 distribution of vertices</a>. For graphing adjacency matrices for your
 specific needs, check out the <a href="https://rdrr.io/cran/igraph/" class="external-link">iGraph</a> package’s <a href="https://www.rdocumentation.org/packages/igraph/versions/1.3.5/topics/graph_from_adjacency_matrix" class="external-link">graph_from_adjacency_matrix</a>
 function.</p>
 <p>The <code>interact_network_plot</code> function is designed to allow
-researchers to perform exploratory data analysis of data in edge list
-format. This will allow them to determine what the most efficient way of
-analyzing and manipulating their data. The
-<code>interact_network_plot</code> uses R packages <a href="https://rdrr.io/cran/igraph/" class="external-link">iGraph</a> and <a href="https://christophergandrud.github.io/networkD3/" class="external-link">networkD3</a>.</p>
+researchers to create a simple network graph with an optional title and
+subtitle. This will allow researchers to create multiple network graphs
+and be able to distinguish between them easily, since the networkD3
+package does not have a way to add a title directly. The
+<code>interact_network_plot</code> uses R packages <a href="https://christophergandrud.github.io/networkD3/" class="external-link">networkD3</a> and
+<a href="https://rstudio.github.io/htmltools/" class="external-link">htmltools</a>.</p>
 <div class="section level4">
 <h4 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a>
 </h4>
 <p>Only one argument is necessary, <code>data</code>, a matrix or a data
-frame of edge list format. In congruence with the networkD3 package, it
-should be of the form <code>initial_pt</code>: The column NUMBER of
-initial point variable. Default is 1</p>
+frame of edge list format. In congruence with the <a href="https://christophergandrud.github.io/networkD3/" class="external-link">networkD3</a>
+package’s <a href="https://christophergandrud.github.io/networkD3/#simple" class="external-link">simpleNetwork</a>
+function, it should be a data frame object with three columns. The first
+two are the names of the linked units. The third records an edge value.
+(Currently the third column doesn’t affect the graph.)</p>
+<p><code>initial_pt</code>: The column NUMBER of initial point variable.
+Default is 1</p>
 <p><code>target_pt</code>: The column NUMBER of target point variable.
 Default is 2</p>
 <p><code>linkDistance</code>: The numeric distance between the links in
@@ -246,25 +262,18 @@ you can run the following code.</p>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org" class="external-link">magrittr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://CRAN.R-project.org/package=networkD3" class="external-link">networkD3</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning: package 'networkD3' was built under R version 4.4.2</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/networkD3/man/simpleNetwork.html" class="external-link">simpleNetwork</a></span><span class="op">(</span><span class="va">network_data_test</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/networkD3/man/saveNetwork.html" class="external-link">saveNetwork</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">'Net1.html'</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co">#simpleNetwork(network_data_test) %&gt;%</span></span>
+<span><span class="co">#saveNetwork(file = 'Net1.html')</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="how-to-use-the-interact_network_plot-function">How to use the <strong>interact_network_plot</strong> function<a class="anchor" aria-label="anchor" href="#how-to-use-the-interact_network_plot-function"></a>
 </h4>
-<p>Because the nuance of data structure and analyses that come with
-neuroscience data, this package is designed to allow researchers to
-explore the structure of their data. This exploratory analysis could
-yield information for the most efficient and accurate way to
-statistically analyze and visualize the specific data structure of the
-current project. It is not designed to make publication-ready
-graphs.</p>
-<p>more info on function itself…. might make different matrices and want
-to see difference between them– adding titles to simple network needs
-html::tools which is made simple and easy by this function</p>
 <p>An example dataset has been provided in this package to explore what
 the <code>interact_network_plot</code> function can do. The dataset,
-<code>network_data_test</code> includes ……</p>
+<code>network_data_test</code> includes 4 columns, therefore 2 sets of
+network data in one data frame. There are 13 rows of random data.
+Columns 1 and 2 are of the form “Neuron 1” -&gt; “Neuron 2”. Columns 3
+and 4 are of the form “A” -&gt; “B”.</p>
 </div>
 <div class="section level4">
 <h4 id="how-the-interact_network_plot-function-works">How the <strong>interact_network_plot</strong> function works<a class="anchor" aria-label="anchor" href="#how-the-interact_network_plot-function-works"></a>
@@ -287,7 +296,7 @@ package.</p>
 <span>                    zoom <span class="op">=</span> <span class="cn">TRUE</span>                    <span class="co"># Can you zoom on the figure?</span></span>
 <span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p>Finally, it adds the title and subtitle using the <a href="https://rstudio.github.io/htmltools/" class="external-link">htmltools</a> package.</p>
+<p>Then, it adds the title and subtitle using the <a href="https://rstudio.github.io/htmltools/" class="external-link">htmltools</a> and <a href="https://www.htmlwidgets.org/" class="external-link">htmlwidgets</a> packages .</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">htmlwidgets</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/htmlwidgets/man/prependContent.html" class="external-link">prependContent</a></span><span class="op">(</span><span class="va">p</span>,</span>
 <span>                            <span class="fu">htmltools</span><span class="fu">::</span><span class="va"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">tags</a></span><span class="op">$</span><span class="fu">div</span><span class="op">(</span></span>
@@ -300,8 +309,8 @@ package.</p>
 <h3 style="text-align: center; font-family: serif; color: #333;">Title</h3>
 <h4 style="text-align: center; font-family: serif; color: #666;">Subtitle</h4>
 </div>
-<div class="forceNetwork html-widget html-fill-item" id="htmlwidget-e5c8c404fe174e4c81bd" style="width:700px;height:432.632880098888px;"></div>
-<script type="application/json" data-for="htmlwidget-e5c8c404fe174e4c81bd">{"x":{"links":{"source":[0,0,3,4,6,5,6,8,7,9,10,2,1],"target":[3,4,0,5,0,7,3,9,3,10,6,8,0],"value":[1,1,1,1,1,1,1,1,1,1,1,1,1],"colour":["#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666"]},"nodes":{"name":["Neuron 1","Neuron 10","Neuron 11","Neuron 2","Neuron 3","Neuron 4","Neuron 5","Neuron 6","Neuron 7","Neuron 8","Neuron 9"],"group":[1,1,1,1,1,1,1,1,1,1,1],"nodesize":[8,8,8,8,8,8,8,8,8,8,8]},"options":{"NodeID":"name","Group":"group","colourScale":"d3.scaleOrdinal(['#69b3a2'])","fontSize":14,"fontFamily":"serif","clickTextSize":35,"linkDistance":10,"linkWidth":"'1.5px'.toString()","charge":-900,"opacity":0.9,"zoom":true,"legend":false,"arrows":false,"nodesize":true,"radiusCalculation":"d.nodesize","bounded":false,"opacityNoHover":1,"clickAction":null}},"evals":[],"jsHooks":[]}</script>
+<div class="forceNetwork html-widget html-fill-item" id="htmlwidget-ac96cb3ee4656e2e9ec3" style="width:700px;height:432.632880098888px;"></div>
+<script type="application/json" data-for="htmlwidget-ac96cb3ee4656e2e9ec3">{"x":{"links":{"source":[0,0,3,4,6,5,6,8,7,9,10,2,1],"target":[3,4,0,5,0,7,3,9,3,10,6,8,0],"value":[1,1,1,1,1,1,1,1,1,1,1,1,1],"colour":["#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666"]},"nodes":{"name":["Neuron 1","Neuron 10","Neuron 11","Neuron 2","Neuron 3","Neuron 4","Neuron 5","Neuron 6","Neuron 7","Neuron 8","Neuron 9"],"group":[1,1,1,1,1,1,1,1,1,1,1],"nodesize":[8,8,8,8,8,8,8,8,8,8,8]},"options":{"NodeID":"name","Group":"group","colourScale":"d3.scaleOrdinal(['#69b3a2'])","fontSize":14,"fontFamily":"serif","clickTextSize":35,"linkDistance":10,"linkWidth":"'1.5px'.toString()","charge":-900,"opacity":0.9,"zoom":true,"legend":false,"arrows":false,"nodesize":true,"radiusCalculation":"d.nodesize","bounded":false,"opacityNoHover":1,"clickAction":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div class="section level4">
 <h4 id="example-usage-of-interact_network_plot">Example usage of <strong>interact_network_plot</strong><a class="anchor" aria-label="anchor" href="#example-usage-of-interact_network_plot"></a>
@@ -312,19 +321,21 @@ package.</p>
 <h3 style="text-align: center; font-family: serif; color: #333;">Network Graph</h3>
 <h4 style="text-align: center; font-family: serif; color: #666;">Exploring Interactions and Relationships</h4>
 </div>
-<div class="forceNetwork html-widget html-fill-item" id="htmlwidget-36aa3d2a04d42bbc2145" style="width:700px;height:432.632880098888px;"></div>
-<script type="application/json" data-for="htmlwidget-36aa3d2a04d42bbc2145">{"x":{"links":{"source":[0,0,3,4,6,5,6,8,7,9,10,2,1],"target":[3,4,0,5,0,7,3,9,3,10,6,8,0],"value":[1,1,1,1,1,1,1,1,1,1,1,1,1],"colour":["#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666"]},"nodes":{"name":["Neuron 1","Neuron 10","Neuron 11","Neuron 2","Neuron 3","Neuron 4","Neuron 5","Neuron 6","Neuron 7","Neuron 8","Neuron 9"],"group":[1,1,1,1,1,1,1,1,1,1,1],"nodesize":[8,8,8,8,8,8,8,8,8,8,8]},"options":{"NodeID":"name","Group":"group","colourScale":"d3.scaleOrdinal(['#69b3a2'])","fontSize":14,"fontFamily":"serif","clickTextSize":35,"linkDistance":10,"linkWidth":"'1.5px'.toString()","charge":-900,"opacity":0.9,"zoom":true,"legend":false,"arrows":false,"nodesize":true,"radiusCalculation":"d.nodesize","bounded":false,"opacityNoHover":1,"clickAction":null}},"evals":[],"jsHooks":[]}</script><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="forceNetwork html-widget html-fill-item" id="htmlwidget-e5c8c404fe174e4c81bd" style="width:700px;height:432.632880098888px;"></div>
+<script type="application/json" data-for="htmlwidget-e5c8c404fe174e4c81bd">{"x":{"links":{"source":[0,0,3,4,6,5,6,8,7,9,10,2,1],"target":[3,4,0,5,0,7,3,9,3,10,6,8,0],"value":[1,1,1,1,1,1,1,1,1,1,1,1,1],"colour":["#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666"]},"nodes":{"name":["Neuron 1","Neuron 10","Neuron 11","Neuron 2","Neuron 3","Neuron 4","Neuron 5","Neuron 6","Neuron 7","Neuron 8","Neuron 9"],"group":[1,1,1,1,1,1,1,1,1,1,1],"nodesize":[8,8,8,8,8,8,8,8,8,8,8]},"options":{"NodeID":"name","Group":"group","colourScale":"d3.scaleOrdinal(['#69b3a2'])","fontSize":14,"fontFamily":"serif","clickTextSize":35,"linkDistance":10,"linkWidth":"'1.5px'.toString()","charge":-900,"opacity":0.9,"zoom":true,"legend":false,"arrows":false,"nodesize":true,"radiusCalculation":"d.nodesize","bounded":false,"opacityNoHover":1,"clickAction":null}},"evals":[],"jsHooks":[]}</script><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/interact_network_plot.html">interact_network_plot</a></span><span class="op">(</span><span class="va">network_data_test</span>, initial_pt <span class="op">=</span> <span class="fl">3</span>, target_pt <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code></pre></div>
 <div>
 <h3 style="text-align: center; font-family: serif; color: #333;">Network Graph</h3>
 <h4 style="text-align: center; font-family: serif; color: #666;">Exploring Interactions and Relationships</h4>
 </div>
-<div class="forceNetwork html-widget html-fill-item" id="htmlwidget-febe03efa1a2d8d52a86" style="width:700px;height:432.632880098888px;"></div>
-<script type="application/json" data-for="htmlwidget-febe03efa1a2d8d52a86">{"x":{"links":{"source":[0,0,1,3,2,3,4,1,2,6,4,0,7],"target":[1,4,5,0,2,0,1,8,0,2,0,1,6],"value":[1,1,1,1,1,1,1,1,1,1,1,1,1],"colour":["#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666"]},"nodes":{"name":["A","B","C","D","E","F","K","M","Z"],"group":[1,1,1,1,1,1,1,1,1],"nodesize":[8,8,8,8,8,8,8,8,8]},"options":{"NodeID":"name","Group":"group","colourScale":"d3.scaleOrdinal(['#69b3a2'])","fontSize":14,"fontFamily":"serif","clickTextSize":35,"linkDistance":10,"linkWidth":"'1.5px'.toString()","charge":-900,"opacity":0.9,"zoom":true,"legend":false,"arrows":false,"nodesize":true,"radiusCalculation":"d.nodesize","bounded":false,"opacityNoHover":1,"clickAction":null}},"evals":[],"jsHooks":[]}</script>
+<div class="forceNetwork html-widget html-fill-item" id="htmlwidget-36aa3d2a04d42bbc2145" style="width:700px;height:432.632880098888px;"></div>
+<script type="application/json" data-for="htmlwidget-36aa3d2a04d42bbc2145">{"x":{"links":{"source":[0,0,1,3,2,3,4,1,2,6,4,0,7],"target":[1,4,5,0,2,0,1,8,0,2,0,1,6],"value":[1,1,1,1,1,1,1,1,1,1,1,1,1],"colour":["#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666"]},"nodes":{"name":["A","B","C","D","E","F","K","M","Z"],"group":[1,1,1,1,1,1,1,1,1],"nodesize":[8,8,8,8,8,8,8,8,8]},"options":{"NodeID":"name","Group":"group","colourScale":"d3.scaleOrdinal(['#69b3a2'])","fontSize":14,"fontFamily":"serif","clickTextSize":35,"linkDistance":10,"linkWidth":"'1.5px'.toString()","charge":-900,"opacity":0.9,"zoom":true,"legend":false,"arrows":false,"nodesize":true,"radiusCalculation":"d.nodesize","bounded":false,"opacityNoHover":1,"clickAction":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div class="section level4">
 <h4 id="notes-and-considerations">Notes and Considerations<a class="anchor" aria-label="anchor" href="#notes-and-considerations"></a>
 </h4>
+<p>If you ever get an error saying object “tags” not found, it means
+that you have not loaded the <a href="https://rstudio.github.io/htmltools/" class="external-link">htmltools</a> package.</p>
 </div>
 <div class="section level4">
 <h4 id="extra-resources-for-using-networks-in-neuroscience">Extra Resources for Using Networks in Neuroscience:<a class="anchor" aria-label="anchor" href="#extra-resources-for-using-networks-in-neuroscience"></a>
@@ -345,21 +356,13 @@ where scientists would manually draw each “pixel” in grayscale.</p>
 <p>Correlation heatmaps are used in neuroscience to illustrate
 connectivity between brain regions. This is often done by taking
 electroencephalography data of the brain and consequently plotting time
-on both axes, with color demonstrating relative correlation values. This
-is shown in the example below.</p>
-<p><img src="neuro_heatmap_example.heic" alt="Heatmap of brain regions with time on both axes." width="300"></p>
-<p>This image shows an example of a heatmap of brain regions with time
-on both axes. It shows the difference in connectivity when on ketamine,
-midazolam, before falling asleep, and sleeping all compared to controls.
-The red line along the diagonal demonstrates how each time point is 100%
-correlated to itself. Electroencephalography data taken in monkeys by <a href="https://www.teichert.pitt.edu/index.html" class="external-link">Professor Teichert’s
-Lab</a> at Pittsburgh University.</p>
-<p>Here is another example of heatmap graph use in analyses of
-structural and functional systems. <a href="https://www.nature.com/articles/nrn2575" class="external-link">Source</a></p>
+on both axes, with color demonstrating relative correlation values.</p>
+<p>Here is an example of heatmap graph use in analyses of structural and
+functional systems, using simulated data. <a href="https://www.nature.com/articles/nrn2575" class="external-link">Source</a></p>
 <p><img src="heatmap_neuro.jpg" alt="Simulation of brain activity visualized as heatmap" width="300"></p>
-<p>Unfortunately, the datasets used to make plots like this in real
-research labs is classified due to regulations about data privacy. So we
-will use <a href="https://www.statology.org/mtcars-dataset-r/" class="external-link">mtcars</a> to
+<p>Unfortunately, the data used to make plots like this in real research
+labs is classified due to regulations about data privacy, so we will use
+<a href="https://www.statology.org/mtcars-dataset-r/" class="external-link">mtcars</a> to
 demonstrate the use of this package’s <code>corrheatmap</code>
 function.</p>
 <div class="section level4">
@@ -375,10 +378,10 @@ to rows, columns, or both.</p>
 the package <a href="https://www.rdocumentation.org/packages/grDevices/versions/3.6.2" class="external-link">grDevices</a>
 <a href="https://www.rdocumentation.org/packages/grDevices/versions/3.6.2/topics/colorRamp" class="external-link">colorRampPallete</a>
 function, and thus can take a vector of colors in agreement with the
-valid argumnents of <a href="https://www.rdocumentation.org/packages/grDevices/versions/3.6.2/topics/col2rgb" class="external-link">col2rgb</a>.
+valid arguments of <a href="https://www.rdocumentation.org/packages/grDevices/versions/3.6.2/topics/col2rgb" class="external-link">col2rgb</a>.
 Colors can be hexadecimal form, color name (as listed by <a href="">colors()</a>, or a positive integer i, meaning palatte()[i].
-Defualt is magenta (#ff00ff), cyan (#00ffff), and yellow (#ffff00).</p>
-<p><code>n_colors</code>: number of colors to be created in pallate from
+Default is magenta (#ff00ff), cyan (#00ffff), and yellow (#ffff00).</p>
+<p><code>n_colors</code>: number of colors to be created in pallete from
 <code>colors</code> argument. Default is 20. Increase for large
 datasets.</p>
 <p><code>title</code>: A string of characters. Default is “Correlation
@@ -438,7 +441,7 @@ correlation.</p>
 <span><span class="co">#&gt; am   -0.22986086  0.1683451  1.00000000  0.7940588  0.05753435</span></span>
 <span><span class="co">#&gt; gear -0.21268223  0.2060233  0.79405876  1.0000000  0.27407284</span></span>
 <span><span class="co">#&gt; carb -0.65624923 -0.5696071  0.05753435  0.2740728  1.00000000</span></span></code></pre></div>
-<p>Then, it creates a color palatte from the colors given in the
+<p>Then, it creates a color palette from the colors given in the
 <code>colors</code> argument.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">grDevices</span><span class="op">)</span></span>
@@ -503,9 +506,9 @@ columns, just the columns, just the rows, or no dendrogram.</p>
 <p>*Even with a relatively small dataset such as <code>mtcars</code>,
 when the <code>dend</code> argument is specified as “both”, the window
 needed to print the plot is too large for RStudio. The function is set
-to open a new Quartz window when the function is run, so do not be
-surprised when nothing pops up in the Plots window in RStudio. The plot
-will appear in a separate window. This is done using the <a href="https://www.rdocumentation.org/packages/grDevices/versions/3.6.2" class="external-link">grDevices</a>
+to open a new Quartz window when the it is run, so do not be surprised
+when nothing pops up in the Plots window in RStudio. The plot will
+appear in a separate window. This is done using the <a href="https://www.rdocumentation.org/packages/grDevices/versions/3.6.2" class="external-link">grDevices</a>
 package’s <a href="https://www.rdocumentation.org/packages/grDevices/versions/3.6.2/topics/dev" class="external-link">dev.new</a>
 function.</p>
 <p>If you have already run the function and run it a second time,
