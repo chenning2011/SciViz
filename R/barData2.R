@@ -4,9 +4,9 @@
 #'
 #' @format A data frame with 12 rows and 4 variables:
 #' \describe{
-#'   \item{\code{Activity}}{character. DESCRIPTION.}
-#'   \item{\code{Session_Type}}{character. DESCRIPTION.}
-#'   \item{\code{Mean_Duration}}{double. DESCRIPTION.}
-#'   \item{\code{Error_Value}}{double. DESCRIPTION.}
+#'   \item{\code{Activity}}{character. Activity: This variable represents the type of exercise activity participants engaged in. The three activities are: Running, Swimming, Cycling}
+#'   \item{\code{Session_Type}}{character. Session_Type: This variable indicates whether the exercise session took place on a Weekday or a Weekend. It helps differentiate between the type of day participants chose to exercise.}
+#'   \item{\code{Mean_Duration}}{double. Mean_Duration: This variable represents the average duration (in minutes) of each exercise session for each activity type and session day. It shows how long, on average, participants spent doing each activity.}
+#'   \item{\code{Error_Value}}{double. Error_Value: These are the error values (e.g., standard error or confidence interval) associated with the mean exercise duration. They provide an indication of the variability or uncertainty in the reported mean duration.}
 #' }
 "barData2"
