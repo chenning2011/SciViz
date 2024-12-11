@@ -23,6 +23,7 @@ library(SciViz)
 ## APA Regulation Ready Graphs
 
 ### APA Line Graph
+
 The apa_line() function is designed to create a line chart that adheres to APA 7th edition style guidelines, using ggplot2 for data visualization. It includes options for adding error bars to represent variability in the data, along with customizable titles, labels, and colors, making it ideal for producing professional and publication-ready line charts in academic contexts.
 
 ```{r}
@@ -40,11 +41,12 @@ apa_line(
  )
 ```
 
-
 ### APA Bar Graph
+
 The apa_bar() function is designed to create a bar graph that follows APA 7th edition style guidelines using ggplot2 in R. It provides customizable options for adding error bars, titles, labels, groupings, and faceting, making it suitable for generating clear, publication-ready bar charts for academic presentations and publications.
 
 Example 1: Depression Scores by Treatment Groups
+
 ```{r}
 apa_bar(
    data = barData1,  # The dataset
@@ -83,21 +85,17 @@ apa_bar(
 
 This example uses an imbalanced dataset to illustrate that the apa_bar() function may not be suitable for visualizing imbalanced data. In this case, the number of sessions varies across activity types, which could distort the representation of the data in the bar chart. Consequently, this function is not ideal for situations where sample sizes are unequal across groups, as it may lead to misleading visual interpretations.
 
-A more detailed breakdown: 
-The dataset includes three activities: Running, Swimming, and Cycling. Each activity has four corresponding rows, resulting in a total of 12 rows in the dataset. The Session_Type variable, which indicates whether the session occurred on a Weekday or Weekend, repeats six times for each activity. However, this creates an imbalance in the representation of sessions across the different activities. Specifically, while there are six Weekend sessions for each activity type, there are only four Weekday sessions for each activity type. This discrepancy leads to an unequal distribution of sessions across the activity types. As a result, this imbalance between activities means that the bar chart will not represent the activities equally. In particular, the number of sessions for each activity type differs, which could lead to misleading visualizations. This imbalance is a key factor that might make the bar chart less effective for this specific scenario, as it may not accurately reflect the true distribution of sessions across activities.
-
-
+A more detailed breakdown: The dataset includes three activities: Running, Swimming, and Cycling. Each activity has four corresponding rows, resulting in a total of 12 rows in the dataset. The Session_Type variable, which indicates whether the session occurred on a Weekday or Weekend, repeats six times for each activity. However, this creates an imbalance in the representation of sessions across the different activities. Specifically, while there are six Weekend sessions for each activity type, there are only four Weekday sessions for each activity type. This discrepancy leads to an unequal distribution of sessions across the activity types. As a result, this imbalance between activities means that the bar chart will not represent the activities equally. In particular, the number of sessions for each activity type differs, which could lead to misleading visualizations. This imbalance is a key factor that might make the bar chart less effective for this specific scenario, as it may not accurately reflect the true distribution of sessions across activities.
 
 ## Network Plots and Heatmaps
 
 ### Network Plot
 
-Network plots are ..... Network plots use matrices containing points with directionality. This means for each (x,y) pair, there is an "inital" point and a "target" point. They are often used for ..........
+[Network plots](https://www.data-to-viz.com/graph/network.html) are a way to visualize the relationships between different entities, where each entity is depicted as a "node" and the connections between them are shown as "links" or "edges". This means network graphs use matrices containing points either connected or not connected with each other. For each (x,y) pair, there is an "inital" point and a "target" point. These points can be of the format directed & weighted, directed & unweighted, undirected & weighted, or undirected & unweighted.They are used in many disciplines such as neuroscience, computer science, intelligence analysis, physics, biology, and more.
 
-Network plots are used in neuroscience in a variety of ways, corresponding with a variety of different ways of analyzing the data. In neuroscience, there are numerous types of matrices used in network plots for neuroscience research, but some common ones are [adjacency](https://www.sciencedirect.com/science/article/pii/B9780124079083000030) and [Laplacian matrices](https://www.frontiersin.org/journals/computational-neuroscience/articles/10.3389/fncom.2013.00189/full). Adjacency matrices are used in neuroscience to represent the pattern of connectivity between nodes in the brain. Degree matrices are used to describe the number of nodes connected to each node in a network. Lapacian matrices are used in neuroscience to study neural networks and brain connectivity. 
+Network plots are used in neuroscience in a variety of ways, corresponding with a variety of different ways of analyzing the data. In neuroscience, there are numerous types of matrices used in network plots for neuroscience research, but some common ones are [adjacency](https://www.sciencedirect.com/science/article/pii/B9780124079083000030) and [Laplacian matrices](https://www.frontiersin.org/journals/computational-neuroscience/articles/10.3389/fncom.2013.00189/full). Adjacency matrices are used in neuroscience to represent the pattern of connectivity between nodes in the brain. Degree matrices are used to describe the number of nodes connected to each node in a network. Lapacian matrices are used in neuroscience to study neural networks and brain connectivity. Network graphs can be used in neuroscience to visualize relationships between individual neurons or groups of neurons.
 
-<img src="network_examples.jpg" alt="Network visualized as a regular network, small-world network, and random network." width="450"/> 
-
+<img src="network_examples.jpg" alt="Network visualized as a regular network, small-world network, and random network." width="450"/>
 
 This image shows a network visualized as a regular network, small-world network, and random network.[Source](https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613%2817%2930221-8)
 
@@ -105,13 +103,15 @@ This image shows a network visualized as a regular network, small-world network,
 
 This graph shows an example of a network plot depicting differences in brain connectivity in control vs schizophrenia patients. [Source](https://www.nature.com/articles/nrn2575)
 
-Along with different types of matrices, there are also many different ways to visualize the corresponding data. Lapacian matrices are complex and graphing them is out of the scope of this function. For resources on graphing lapacian matrices check out the [iGraph](https://rdrr.io/cran/igraph/) package and its [lapacian_matrix](https://rdrr.io/cran/igraph/man/laplacian_matrix.html) function. The iGraph documentation aslo has information on the [structural properties of graphs](https://igraph.org/c/html/latest/igraph-Structural.html#igraph_get_laplacian) and [degree and degree distribution of vertices](https://igraph.org/r/html/1.2.3/degree.html). For graphing adjacency matrices for your specific needs, check out the [iGraph](https://rdrr.io/cran/igraph/) package's [graph_from_adjacency_matrix](https://www.rdocumentation.org/packages/igraph/versions/1.3.5/topics/graph_from_adjacency_matrix) function. 
+Along with different types of matrices, there are also many different ways to visualize the corresponding data. Lapacian matrices are complex and graphing them is out of the scope of this function. For resources on graphing Lapacian matrices check out the [iGraph](https://rdrr.io/cran/igraph/) package and its [Lapacian_matrix](https://rdrr.io/cran/igraph/man/laplacian_matrix.html) function. The iGraph documentation also has information on the [structural properties of graphs](https://igraph.org/c/html/latest/igraph-Structural.html#igraph_get_laplacian) and [degree and degree distribution of vertices](https://igraph.org/r/html/1.2.3/degree.html). For graphing adjacency matrices for your specific needs, check out the [iGraph](https://rdrr.io/cran/igraph/) package's [graph_from_adjacency_matrix](https://www.rdocumentation.org/packages/igraph/versions/1.3.5/topics/graph_from_adjacency_matrix) function.
 
-The `interact_network_plot` function is designed to allow researchers to perform exploratory data analysis of data in edge list format. This will allow them to determine what the most efficient way of analyzing and manipulating their data. The `interact_network_plot` uses R packages [iGraph](https://rdrr.io/cran/igraph/) and [networkD3](https://christophergandrud.github.io/networkD3/).
+The `interact_network_plot` function is designed to allow researchers to create a simple network graph with an optional title and subtitle. This will allow researchers to create multiple network graphs and be able to distinguish between them easily, since the networkD3 package does not have a way to add a title directly. The `interact_network_plot` uses R packages [networkD3](https://christophergandrud.github.io/networkD3/) and [htmltools](https://rstudio.github.io/htmltools/).
 
 #### Arguments
-Only one argument is necessary, `data`, a matrix or a data frame of edge list format. In congruence with the networkD3 package, it should be of the form 
-`initial_pt`: The column NUMBER of initial point variable. Default is 1 
+
+Only one argument is necessary, `data`, a matrix or a data frame of edge list format. In congruence with the [networkD3](https://christophergandrud.github.io/networkD3/) package's [simpleNetwork](https://christophergandrud.github.io/networkD3/#simple) function, it should be a data frame object with three columns. The first two are the names of the linked units. The third records an edge value. (Currently the third column doesn't affect the graph.)
+
+`initial_pt`: The column NUMBER of initial point variable. Default is 1
 
 `target_pt`: The column NUMBER of target point variable. Default is 2
 
@@ -119,7 +119,7 @@ Only one argument is necessary, `data`, a matrix or a data frame of edge list fo
 
 `linkColour`: A character string specifying the colour you want the link lines to be. Multiple formats supported (e.g. hexadecimal). Default is "#666".
 
-`nodeColour`:	A character string specifying the colour you want the node circles to be. Multiple formats supported (e.g. hexadecimal). Default is "#69b3a2". 
+`nodeColour`: A character string specifying the colour you want the node circles to be. Multiple formats supported (e.g. hexadecimal). Default is "#69b3a2".
 
 `opacity`: Numeric value of the proportion opaque you would like the graph elements to be. Default is 0.9
 
@@ -129,31 +129,28 @@ Only one argument is necessary, `data`, a matrix or a data frame of edge list fo
 
 `subtitle`: A character string: subtitle for graph. Smaller, lighter text than title. Default is "Exploring Interactions and Relationships".
 
-
 #### Result
+
 An interactive simple network graph with title and subtitle.
 
 If you want to save the graph by itself as a stand alone html file, you can run the following code.
+
 ```{r}
 library(dplyr)
 library(magrittr)
 library(networkD3)
-simpleNetwork(network_data_test) %>%
-saveNetwork(file = 'Net1.html')
+#simpleNetwork(network_data_test) %>%
+#saveNetwork(file = 'Net1.html')
 ```
 
 #### How to use the **interact_network_plot** function
 
-Because the nuance of data structure and analyses that come with neuroscience data, this package is designed to allow researchers to explore the structure of their data. This exploratory analysis could yield information for the most efficient and accurate way to statistically analyze and visualize the specific data structure of the current project. It is not designed to make publication-ready graphs. 
-
-more info on function itself....
-might make different matrices and want to see difference between them-- adding titles to simple network needs html::tools which is made simple and easy by this function
-
-
-An example dataset has been provided in this package to explore what the `interact_network_plot` function can do. The dataset, `network_data_test` includes ......
+An example dataset has been provided in this package to explore what the `interact_network_plot` function can do. The dataset, `network_data_test` includes 4 columns, therefore 2 sets of network data in one data frame. There are 13 rows of random data. Columns 1 and 2 are of the form "Neuron 1" -\> "Neuron 2". Columns 3 and 4 are of the form "A" -\> "B".
 
 #### How the **interact_network_plot** function works
-First, the function creates the interactive network plot using the [simpleNetwork](https://christophergandrud.github.io/networkD3/#simple) function from the [networkD3](https://christophergandrud.github.io/networkD3/) package. 
+
+First, the function creates the interactive network plot using the [simpleNetwork](https://christophergandrud.github.io/networkD3/#simple) function from the [networkD3](https://christophergandrud.github.io/networkD3/) package.
+
 ```{r}
 #create network graph
 p <- simpleNetwork(network_data_test,
@@ -171,7 +168,8 @@ p <- simpleNetwork(network_data_test,
   )
 ```
 
-Finally, it adds the title and subtitle using the [htmltools](https://rstudio.github.io/htmltools/) package. 
+Then, it adds the title and subtitle using the [htmltools](https://rstudio.github.io/htmltools/) and [htmlwidgets](https://www.htmlwidgets.org/) packages .
+
 ```{r}
 htmlwidgets::prependContent(p,
                             htmltools::tags$div(
@@ -182,12 +180,11 @@ htmlwidgets::prependContent(p,
                             ))
 ```
 
-
 #### Example usage of **interact_network_plot**
+
 ```{r, warning = F, message = F}
 interact_network_plot(network_data_test, initial_pt = 1, target_pt = 2)
 ```
-
 
 ```{r, warning = F, message = F}
 interact_network_plot(network_data_test, initial_pt = 3, target_pt = 4)
@@ -195,13 +192,13 @@ interact_network_plot(network_data_test, initial_pt = 3, target_pt = 4)
 
 #### Notes and Considerations
 
+If you ever get an error saying object "tags" not found, it means that you have not loaded the [htmltools](https://rstudio.github.io/htmltools/) package.
 
-#### Extra Resources for Using Networks in Neuroscience: 
-[Brain Connectivity ToolBox](https://sites.google.com/site/bctnet/list-of-measures) 
+#### Extra Resources for Using Networks in Neuroscience:
+
+[Brain Connectivity ToolBox](https://sites.google.com/site/bctnet/list-of-measures)
 
 [Network Neuroscience Theory of Human Intelligence](https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613%2817%2930221-8)
-
-
 
 ### Heatmaps
 
@@ -209,17 +206,13 @@ Heatmaps use color to graphically represent relationships between many variables
 
 <img src="og_grayscale_heatmap.jpg" alt="Manually drawn heatmap from 1873 Paris." width="200"/>
 
-Correlation heatmaps are used in neuroscience to illustrate connectivity between brain regions. This is often done by taking electroencephalography data of the brain and consequently plotting time on both axes, with color demonstrating relative correlation values. This is shown in the example below.
+Correlation heatmaps are used in neuroscience to illustrate connectivity between brain regions. This is often done by taking electroencephalography data of the brain and consequently plotting time on both axes, with color demonstrating relative correlation values.
 
-<img src="neuro_heatmap_example.heic" alt="Heatmap of brain regions with time on both axes." width="300"/>
-
-This image shows an example of a heatmap of brain regions with time on both axes. It shows the difference in connectivity when on ketamine, midazolam, before falling asleep, and sleeping all compared to controls. The red line along the diagonal demonstrates how each time point is 100% correlated to itself. Electroencephalography data taken in monkeys by [Professor Teichert's Lab](https://www.teichert.pitt.edu/index.html) at Pittsburgh University.
-
-Here is another example of heatmap graph use in analyses of structural and functional systems. [Source](https://www.nature.com/articles/nrn2575)
+Here is an example of heatmap graph use in analyses of structural and functional systems, using simulated data. [Source](https://www.nature.com/articles/nrn2575)
 
 <img src="heatmap_neuro.jpg" alt="Simulation of brain activity visualized as heatmap" width="300"/>
 
-Unfortunately, the datasets used to make plots like this in real research labs is classified due to regulations about data privacy. So we will use [mtcars](https://www.statology.org/mtcars-dataset-r/) to demonstrate the use of this package's `corrheatmap` function.
+Unfortunately, the data used to make plots like this in real research labs is classified due to regulations about data privacy, so we will use [mtcars](https://www.statology.org/mtcars-dataset-r/) to demonstrate the use of this package's `corrheatmap` function.
 
 #### Arguments
 
@@ -227,9 +220,9 @@ Only one argument is necessary, `data`, a **matrix or a data frame**. The data m
 
 Optional arguments are `colors`, `n_colors`, `title`, and `dend` for addition of a dendrogram to rows, columns, or both.
 
-`colors`: A vector of 3 colors. The color argument uses the package [grDevices](https://www.rdocumentation.org/packages/grDevices/versions/3.6.2) [colorRampPallete](https://www.rdocumentation.org/packages/grDevices/versions/3.6.2/topics/colorRamp) function, and thus can take a vector of colors in agreement with the valid argumnents of [col2rgb](https://www.rdocumentation.org/packages/grDevices/versions/3.6.2/topics/col2rgb). Colors can be hexadecimal form, color name (as listed by [colors()](), or a positive integer i, meaning palatte()[i]. Defualt is magenta (#ff00ff), cyan (#00ffff), and yellow (#ffff00).
+`colors`: A vector of 3 colors. The color argument uses the package [grDevices](https://www.rdocumentation.org/packages/grDevices/versions/3.6.2) [colorRampPallete](https://www.rdocumentation.org/packages/grDevices/versions/3.6.2/topics/colorRamp) function, and thus can take a vector of colors in agreement with the valid arguments of [col2rgb](https://www.rdocumentation.org/packages/grDevices/versions/3.6.2/topics/col2rgb). Colors can be hexadecimal form, color name (as listed by [colors()](), or a positive integer i, meaning palatte()[i]. Default is magenta (#ff00ff), cyan (#00ffff), and yellow (#ffff00).
 
-`n_colors`: number of colors to be created in pallate from `colors` argument. Default is 20. Increase for large datasets.
+`n_colors`: number of colors to be created in pallete from `colors` argument. Default is 20. Increase for large datasets.
 
 `title`: A string of characters. Default is "Correlation Heatmap".
 
@@ -251,7 +244,7 @@ data(mtcars)
 cor(mtcars)
 ```
 
-Then, it creates a color palatte from the colors given in the `colors` argument.
+Then, it creates a color palette from the colors given in the `colors` argument.
 
 ```{r, warning = F, message = F}
 library(grDevices)
@@ -328,15 +321,15 @@ corrheatmap(mtcars, title="Correlations of Car Features", dend="none")
 
 #### Notes and Considerations
 
-\*Even with a relatively small dataset such as `mtcars`, when the `dend` argument is specified as "both", the window needed to print the plot is too large for RStudio. The function is set to open a new Quartz window when the function is run, so do not be surprised when nothing pops up in the Plots window in RStudio. The plot will appear in a separate window. This is done using the [grDevices](https://www.rdocumentation.org/packages/grDevices/versions/3.6.2) package's [dev.new](https://www.rdocumentation.org/packages/grDevices/versions/3.6.2/topics/dev) function.
+\*Even with a relatively small dataset such as `mtcars`, when the `dend` argument is specified as "both", the window needed to print the plot is too large for RStudio. The function is set to open a new Quartz window when the it is run, so do not be surprised when nothing pops up in the Plots window in RStudio. The plot will appear in a separate window. This is done using the [grDevices](https://www.rdocumentation.org/packages/grDevices/versions/3.6.2) package's [dev.new](https://www.rdocumentation.org/packages/grDevices/versions/3.6.2/topics/dev) function.
 
 If you have already run the function and run it a second time, sometimes the window is updated to the new graph but is not brought to the front of your screen. If this happens, look for a hidden window behind your other windows.
 
-#### Extra Resources for Using Heatmaps in Neuroscience: 
+#### Extra Resources for Using Heatmaps in Neuroscience:
+
 [What is a heatmap and how do I read it?](https://knowledge.neuronsinc.com/heatmap)
 
 [Neural Datascience Heatmaps](https://neuraldatascience.io/6-single_unit/heat_maps.html)
-
 
 ## Cornerplots and Scatterplots
 

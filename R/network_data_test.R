@@ -1,6 +1,6 @@
 #' network_data_test
 #'
-#' DATASET_DESCRIPTION
+#' network_data_test includes 4 columns, therefore 2 sets of network data in one data frame. There are 13 rows of random data. Columns 1 and 2 are of the form "Neuron 1" -> "Neuron 2". Columns 3 and 4 are of the form "A" -> "B".
 #'
 #' @format A data frame with 13 rows and 4 variables:
 #' \describe{
