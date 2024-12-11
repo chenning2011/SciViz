@@ -10,6 +10,8 @@
 #'@import gplots
 #'@import grDevices
 #'@examples
+#'#Graph will open in a new Quartz window when the corrheatmap function is run
+#'#Here are some examples of how to use the function
 #'corrheatmap(mtcars, title="Correlations of Car Features", dend="row")
 #'corrheatmap(mtcars, title="Correlations of Car Features", dend="col")
 #'corrheatmap(mtcars, title="Correlations of Car Features", dend="both")
