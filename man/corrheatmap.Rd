@@ -28,6 +28,8 @@ A heatmap graph in a new quartz window.
 Calculates Pearson Correlation from a Matrix and plots resulting correlation values on a heatmap with color key, histogram, and optional dendrograms.
 }
 \examples{
+#Graph will open in a new Quartz window when the corrheatmap function is run
+#Here are some examples of how to use the function
 corrheatmap(mtcars, title="Correlations of Car Features", dend="row")
 corrheatmap(mtcars, title="Correlations of Car Features", dend="col")
 corrheatmap(mtcars, title="Correlations of Car Features", dend="both")

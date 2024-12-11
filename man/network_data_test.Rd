@@ -7,10 +7,10 @@
 \format{
 A data frame with 13 rows and 4 variables:
 \describe{
-\item{\code{from}}{character. DESCRIPTION.}
-\item{\code{to}}{character. DESCRIPTION.}
-\item{\code{inital_test}}{character. DESCRIPTION.}
-\item{\code{target_test}}{character. DESCRIPTION.}
+\item{\code{from}}{character. Set 1 Initial point for network plot. Format: "Neuron 1", "Neuron 2", etc.}
+\item{\code{to}}{character. Set 1 Target point for network plot. Format: "Neuron 1", "Neuron 2", etc.}
+\item{\code{inital_test}}{character. Set 2 Initial point for network plot. Format: "A", "B", etc.}
+\item{\code{target_test}}{character. Set 2 Target point for network plot. Format: "A", "B", etc.}
 }
 }
 \usage{
